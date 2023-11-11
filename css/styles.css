@@ -11352,3 +11352,8 @@ img {
 .header-text-container div {
   margin: 10px; /* Añade margen alrededor del texto para mejorar la legibilidad */
 }
+
+ul {
+  list-style: none; /* Quitar los puntos */
+  padding: 0; /* Eliminar el relleno predeterminado de la lista */
+}
