@@ -11314,3 +11314,17 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.rating {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.star {
+  width: 23px;
+  height: 23px;
+  background-color: #ddd; /* Color de la estrella no coloreada (gris claro en este caso) */
+  margin: 0 5px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
