@@ -11328,3 +11328,27 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin: 0 5px;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
+
+header {
+  position: relative;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.header-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  z-index: 2; /* Asegura que el texto esté sobre la imagen */
+}
+
+.header-text-container div {
+  margin: 10px; /* Añade margen alrededor del texto para mejorar la legibilidad */
+}
