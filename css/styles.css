@@ -11315,7 +11315,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.rating {
+#rating-energia {
   list-style: none;
   padding: 0;
   display: flex;
@@ -11358,6 +11358,7 @@ ul {
   padding: 0; /* Eliminar el relleno predeterminado de la lista */
 }
 
+<<<<<<< HEAD
 .circular-border{
   border: 1px solid gray;
   border-radius: 5px;
@@ -11379,3 +11380,86 @@ ul {
   justify-content: center;
 }
 
+=======
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+}
+
+.rating > input{ display:none;}
+
+.rating > label {
+  
+    width: 1em;
+    font-size: 28px;
+    color: #FFD600;
+    cursor: pointer;
+}
+.rating > label::before{ 
+  content: "\2605";
+  position: absolute;
+  opacity: 0;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  opacity: 1 !important;
+}
+
+.rating > input:checked ~ label:before{
+  opacity:1;
+}
+
+.rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+
+.button-inputs{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  margin-top: 10px; 
+  font-weight:300; 
+  border-width: 0px;  
+  background: transparent; 
+  margin-left: 20%;
+}
+
+.input-text{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width: 70%;
+}
+
+.textarea-medicamentos{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:50%; 
+  height:100px;
+}
+
+.textarea-descripcion{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:90%; 
+  height:200px
+}
+
+.masterhead-heading{
+  font-size: 50px; 
+  font-weight: 550; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masterhead-subheading{
+  font-size: 35px; 
+  font-weight: 400; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.normal-text{
+  font-weight: 200;
+}
+
+.bold-text{
+  font-weight: 500;
+}
+
+
+>>>>>>> 410ffdabeb6f58301cb9ea5dbbb8394422e99d5a
