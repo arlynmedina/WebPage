@@ -11389,7 +11389,53 @@ ul {
 
 .rating:hover > input:checked ~ label:before{ opacity: 0.4; }
 
+.button-inputs{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  margin-top: 10px; 
+  font-weight:300; 
+  border-width: 0px;  
+  background: transparent; 
+  margin-left: 20%;
+}
 
+.input-text{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width: 70%;
+}
 
+.textarea-medicamentos{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:50%; 
+  height:100px;
+}
+
+.textarea-descripcion{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:90%; 
+  height:200px
+}
+
+.masterhead-heading{
+  font-size: 50px; 
+  font-weight: 550; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masterhead-subheading{
+  font-size: 35px; 
+  font-weight: 400; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.normal-text{
+  font-weight: 200;
+}
+
+.bold-text{
+  font-weight: 500;
+}
 
 
