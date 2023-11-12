@@ -11353,6 +11353,11 @@ img {
   margin: 10px; /* Añade margen alrededor del texto para mejorar la legibilidad */
 }
 
+ul {
+  list-style: none; /* Quitar los puntos */
+  padding: 0; /* Eliminar el relleno predeterminado de la lista */
+}
+
 .circular-border{
   border: 1px solid gray;
   border-radius: 5px;
