@@ -70,49 +70,95 @@
                         <option value="opcion1"> Husky</option>
                         <option value="opcion2"> Collie </option>
                         <option value="opcion3"> Golden Retriever</option>
-                        <option value="opcion3"> Bulldog</option>
-                        <option value="opcion3"> Beagle</option>
-                        <option value="opcion3"> Shih Tzu</option>
+                        <option value="opcion4"> Bulldog</option>
+                        <option value="opcion5"> Beagle</option>
+                        <option value="opcion6"> Shih Tzu</option>
                     <!-- Agrega más opciones según sea necesario -->
                     </select><br><br>
                     <h6 class="mb-4 d-inline" style="font-weight: 500;">Color: </h6><input class="d-inline" type = "text" placeholder="Ingrese el color del perro" style="font-weight: 200; margin: 1px;"></input><br><br>
                     <h6 style="font-weight: 500;">Nivel de energía:</h6>
-                    <ul id="rating-energia" class="rating">
-                        <li class="star"></li>
-                        <li class="star"></li>
-                        <li class="star"></li>
-                        <li class="star"></li>
-                        <li class="star"></li>
-                    </ul>
-
-                    <script>
-                          // Obtener el valor de rating (puedes ajustar este valor según tus necesidades)
-                        var ratingValue = 3;
-                    
-                          // Obtener la lista de estrellas
-                        var stars = document.getElementById('rating-energia').getElementsByClassName('star');
-                    
-                          // Colorear las primeras "ratingValue" estrellas
-                        for (var i = 0; i < ratingValue; i++) {
-                            stars[i].style.backgroundColor = '#ffd700'; // Color amarillo o el color deseado
-                        }
-                    </script>
-
+                    <div class="rating">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div><br>
                     <h6 style="font-weight: 500;">Historial médico: </h6>
-                    <p style="font-weight: 200;">Vacunas Recientes: </p>
-                    <ul style="font-weight: 200;">
-                        <li><i class="fa-solid fa-bone" style="color: #00000f;"></i> Vacuna contra la rabia (última administrada el 10 de enero de 2023)</li>
-                        <li><i class="fa-solid fa-bone" style="color: #00000f;"></i> Vacuna polivalente (última administrada el 5 de febrero de 2023)</li>
-                    </ul>
+                    <p style="font-weight: 200;">Vacunas Recientes (Escriba ninguna si aplica): </p>
+                    <div id="input-container">
+                        <input type="text" name="historialmedico[]" placeholder="Ingresa la vacuna" style="font-weight: 200; margin: 1px; min-width: 70%;">
+                    </div>
+                    <button type = "button" onclick="agregarInput()"  style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 10px; font-weight:300; border-width: 0px;  background: transparent; margin-left: 20%; ">Agregar</button>
+                    <button type = "button" onclick="eliminarInput()" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 10px; font-weight: 300; border-width: 0px; background: transparent; margin-left:5%;">Eliminar</button><br><br>
                     <h6 style="font-weight: 500;">Problemas de Salud Anteriores: </h6>
-                    <ul style="font-weight: 200;">
-                        <li><i class="fa-solid fa-paw" style="color: #00000f;"></i> Otitis (tratada en mayo de 2022)</li>
-                        <li><i class="fa-solid fa-paw" style="color: #00000f;"></i> Problemas estomacales leves (tratados con dieta especial en agosto de 2021)</li>
+                    <div id="input-container2">
+                        <input type="text" name="problemsalud]" placeholder="Ingresa el problema" style="font-weight: 200; margin: 1px; min-width: 70%;">
+                    </div>
+                    <button tyoe = "button" onclick="agregarInput2()"  style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 10px; font-weight:300; border-width: 0px;  background: transparent; margin-left: 20%; ">Agregar</button>
+                    <button tyoe = "button" onclick="eliminarInput2()" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-top: 10px; font-weight: 300; border-width: 0px; background: transparent; margin-left:5%;">Eliminar</button><br><br>
+                    <script>
+                        function agregarInput() {
+                          // Crear un nuevo input
+                          var nuevoInput = document.createElement("input");
+                          nuevoInput.type = "text";
+                          nuevoInput.name = "historialmedico[]";
+                          nuevoInput.placeholder = "Ingresa la vacuna";
+                          nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
+                      
+                          // Obtener el contenedor y agregar el nuevo input
+                          var contenedor = document.getElementById("input-container");
+                          contenedor.appendChild(nuevoInput);
+                        }
+
+                        function eliminarInput() {
+                            // Obtener el contenedor
+                            var contenedor = document.getElementById("input-container");
+
+                            // Obtener la lista de elementos hijos (inputs y br)
+                            var elementos = contenedor.childNodes;
+
+                            // Verificar si hay al menos dos elementos para evitar eliminar el primer input
+                            if (elementos.length > 2) {
+                            // Eliminar el último input
+                                contenedor.removeChild(elementos[elementos.length - 1]);
+                            
+                            }
+                        }
+                        function agregarInput2() {
+                          // Crear un nuevo input
+                          var nuevoInput = document.createElement("input");
+                          nuevoInput.type = "text";
+                          nuevoInput.name = "problemsalud[]";
+                          nuevoInput.placeholder = "Ingresa el problema";
+                          nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
+                      
+                          // Obtener el contenedor y agregar el nuevo input
+                          var contenedor = document.getElementById("input-container2");
+                          contenedor.appendChild(nuevoInput);
+                        }
+
+                        function eliminarInput2() {
+                            // Obtener el contenedor
+                            var contenedor = document.getElementById("input-container2");
+
+                            // Obtener la lista de elementos hijos (inputs y br)
+                            var elementos = contenedor.childNodes;
+
+                            // Verificar si hay al menos dos elementos para evitar eliminar el primer input
+                            if (elementos.length > 2) {
+                            // Eliminar el último input
+                                contenedor.removeChild(elementos[elementos.length - 1]);
+                            
+                            }
+                        }
+                      </script>
                     </ul>
+                    
                     <h6 style="font-weight: 500;">Medicamentos Actuales: </h6>
-                    <input class="d-inline" type = "text" placeholder="Ingrese medicamentos" style="font-weight: 200; margin: 1px;"></input>
+                    <textarea class="d-inline" placeholder="Ingrese medicamentos" style="font-weight: 200; margin: 1px; min-width:50%; height:100px"></textarea>
                     <h6 style="font-weight: 500;">Descirpción general: </h6>
-                    <input class="d-inline" type = "text" placeholder="Ingrese descripción" style="font-weight: 200; margin: 1px;"></input>
+                    <textarea class="d-inline" placeholder="Ingrese descripción" style="font-weight: 200; margin: 1px; min-width:90%; height:200px"></textarea>
                 </div>
             </div>
         </div>
