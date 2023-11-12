@@ -11358,29 +11358,6 @@ ul {
   padding: 0; /* Eliminar el relleno predeterminado de la lista */
 }
 
-<<<<<<< HEAD
-.circular-border{
-  border: 1px solid gray;
-  border-radius: 5px;
-  height: 40px;
-}
-
-
-
-#iniciarSesionModal .modal-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#iniciarSesionModal .modal-footer {
-  text-align: center;
-  justify-content: center;
-}
-
-=======
 .rating {
   display: flex;
   flex-direction: row-reverse;
@@ -11462,4 +11439,3 @@ ul {
 }
 
 
->>>>>>> 410ffdabeb6f58301cb9ea5dbbb8394422e99d5a
