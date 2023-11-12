@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..."></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <img src="assets/img/dogs/eso.jpg" style="width: 100%;" alt="...">
+        <div class="header-text-container">
+            <div class="masthead-heading text-uppercase" style="font-size: 50px; font-weight: 550; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">¡Felicidades!</div>
+            <div class="masthead-heading" style="font-size: 35px; font-weight: 400; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Ahora conoce más a este compañero peludo</div>
+        </div>
+      </header>
+
+  <main>
+    <h3 class="text-primary text-uppercase font-weight-bold" style ="text-align: center; font-weight: 500;">Ingrese información del perro a ser adoptado</h3>
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <br>
+                    <img class="img-fluid" src="assets/img/dogs/Dog2.jpg" style="width: 100%; max-height: 700px;" alt="">
+                    <br><br>
+                    <h5>Información de Contacto: </h5>
+                    <h6 class="d-inline" style="font-weight: 500;"><i class="fa-solid fa-location-dot" style="color: #00000a;"></i> Dirección: </h6><p class="d-inline" style="font-weight: 200;"><input class="d-inline" type = "text" placeholder="Ingrese su dirección" style="font-weight: 200; margin: 1px;"></input></p><br>
+                    <h6 class="d-inline" style="font-weight: 500;"><i class="fa-solid fa-phone" style="color: #00000a;"></i> Télefono: </h6><p class="d-inline" style="font-weight: 200;"><input class="d-inline" type = "text" placeholder="Ingrese su número" style="font-weight: 200; margin: 1px;"></input></p><br>
+                    <h6 class="d-inline" style="font-weight: 500;"><i class="fa-solid fa-envelope" style="color: #00000a;"></i> Correo: </h6><p class="d-inline" style="font-weight: 200;"><input class="d-inline" type = "email" placeholder="Ingrese su correo" style="font-weight: 200; margin: 1px;"></input></p><br>
+                </div>
+                <div class="col-lg-7">
+                    <br><br>
+                    
+                    <h6 class="mb-4 d-inline" style="font-weight: 500;">Edad: </h6><input class="d-inline" type = "number" min="0" step="1" class="form-control"placeholder="Ingrese la edad en años" style="font-weight: 200; margin: 1px;"></input><br><br>
+                    <h6 class="mb-4 d-inline" style="font-weight: 500;">Raza: </h6>
+                    <select id="opciones" name="opciones" style="font-weight: 200; margin: 1px;">
+                        <option value="opcion1"> Husky</option>
+                        <option value="opcion2"> Collie </option>
+                        <option value="opcion3"> Golden Retriever</option>
+                        <option value="opcion3"> Bulldog</option>
+                        <option value="opcion3"> Beagle</option>
+                        <option value="opcion3"> Shih Tzu</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                    </select><br><br>
+                    <h6 class="mb-4 d-inline" style="font-weight: 500;">Color: </h6><input class="d-inline" type = "text" placeholder="Ingrese el color del perro" style="font-weight: 200; margin: 1px;"></input><br><br>
+                    <h6 style="font-weight: 500;">Nivel de energía:</h6>
+                    <ul id="rating-energia" class="rating">
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                        <li class="star"></li>
+                    </ul>
+
+                    <script>
+                          // Obtener el valor de rating (puedes ajustar este valor según tus necesidades)
+                        var ratingValue = 3;
+                    
+                          // Obtener la lista de estrellas
+                        var stars = document.getElementById('rating-energia').getElementsByClassName('star');
+                    
+                          // Colorear las primeras "ratingValue" estrellas
+                        for (var i = 0; i < ratingValue; i++) {
+                            stars[i].style.backgroundColor = '#ffd700'; // Color amarillo o el color deseado
+                        }
+                    </script>
+
+                    <h6 style="font-weight: 500;">Historial médico: </h6>
+                    <p style="font-weight: 200;">Vacunas Recientes: </p>
+                    <ul style="font-weight: 200;">
+                        <li><i class="fa-solid fa-bone" style="color: #00000f;"></i> Vacuna contra la rabia (última administrada el 10 de enero de 2023)</li>
+                        <li><i class="fa-solid fa-bone" style="color: #00000f;"></i> Vacuna polivalente (última administrada el 5 de febrero de 2023)</li>
+                    </ul>
+                    <h6 style="font-weight: 500;">Problemas de Salud Anteriores: </h6>
+                    <ul style="font-weight: 200;">
+                        <li><i class="fa-solid fa-paw" style="color: #00000f;"></i> Otitis (tratada en mayo de 2022)</li>
+                        <li><i class="fa-solid fa-paw" style="color: #00000f;"></i> Problemas estomacales leves (tratados con dieta especial en agosto de 2021)</li>
+                    </ul>
+                    <h6 style="font-weight: 500;">Medicamentos Actuales: </h6>
+                    <input class="d-inline" type = "text" placeholder="Ingrese medicamentos" style="font-weight: 200; margin: 1px;"></input>
+                    <h6 style="font-weight: 500;">Descirpción general: </h6>
+                    <input class="d-inline" type = "text" placeholder="Ingrese descripción" style="font-weight: 200; margin: 1px;"></input>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+  </main>
+  
+
+  <footer>
+    <img class="img-fluid" src="assets/img/dogs/footer4.png" style="max-width: 100%;" alt="">
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
