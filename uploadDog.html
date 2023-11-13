@@ -15,14 +15,14 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
-
+  <script src = "js/uploadDog.js"></script>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..."></a>
+            <a  href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..."></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -40,31 +40,20 @@
     </nav>
 
     <header>
-        <img src="assets/img/dogs/eso.jpg" style="width: 100%;" alt="...">
+        <img src="assets/img/dogs/uploadDog.jpg" style="height: 450px; object-fit: cover; object-position: center bottom; " alt="...">
         <div class="header-text-container">
-            <div class="masterhead-heading text-uppercase" >¡Felicidades!</div>
-            <div class="masterhead-subheading">Ahora conoce más a este compañero peludo</div>
+            <div class="masterhead-heading">Haz elegido poner un perro en adopción</div>
         </div>
       </header>
 
   <main>
-    <h3 class="text-primary text-uppercase bold-text" style ="text-align: center;">Ingrese información del perro a ser adoptado</h3>
     <div class="container-fluid py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <br>
-                    <img class="img-fluid" src="assets/img/dogs/Dog2.jpg" style="width: 100%; max-height: 700px;" alt="">
+            <h3 class="text-primary bold-text text-center">Completa la siguiente información del perro a ser adoptado</h3>
+            <div class="row">
+                <div class="col-lg-7 align-items-center">
                     <br><br>
-                    <h5>Información de Contacto: </h5>
-                    <h6 class="d-inline bold-text" ><i class="fa-solid fa-location-dot" style="color: #00000a;"></i> Dirección: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "text" placeholder="Ingrese su dirección" style="margin: 1px;"></input></p><br>
-                    <h6 class="d-inline bold-text"><i class="fa-solid fa-phone" style="color: #00000a;"></i> Télefono: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "text" placeholder="Ingrese su número" style="margin: 1px;"></input></p><br>
-                    <h6 class="d-inline bold-text"><i class="fa-solid fa-envelope" style="color: #00000a;"></i> Correo: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "email" placeholder="Ingrese su correo" style="margin: 1px;"></input></p><br>
-                </div>
-                <div class="col-lg-7">
-                    <br><br>
-                    
-                    <h6 class="mb-4 d-inline bold-text" >Edad: </h6><input class="d-inline" type = "number" min="0" step="1" class="form-control normal-text"placeholder="Ingrese la edad en años" style=" margin: 1px;"></input><br><br>
+                    <h6 class="mb-4 d-inline bold-text" >Edad: </h6><input class="mb-4 d-inline normal-text" type = "number" min="0" step="1" placeholder="Ingrese la edad en años" style=" margin: 1px;"></input><br>
                     <h6 class="mb-4 d-inline bold-text">Raza: </h6>
                     <select id="opciones" name="opciones" class = "normal-text" style=" margin: 1px;">
                         <option value="opcion1"> Husky</option>
@@ -97,62 +86,6 @@
                     </div>
                     <button tyoe = "button" onclick="agregarInput2()"  class ="button-inputs" style="margin-left: 20%;">Agregar</button>
                     <button tyoe = "button" onclick="eliminarInput2()" class ="button-inputs" style="margin-left:5%;">Eliminar</button><br><br>
-                    <script>
-                        function agregarInput() {
-                          // Crear un nuevo input
-                          var nuevoInput = document.createElement("input");
-                          nuevoInput.type = "text";
-                          nuevoInput.name = "historialmedico[]";
-                          nuevoInput.placeholder = "Ingresa la vacuna";
-                          nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
-                      
-                          // Obtener el contenedor y agregar el nuevo input
-                          var contenedor = document.getElementById("input-historial");
-                          contenedor.appendChild(nuevoInput);
-                        }
-
-                        function eliminarInput() {
-                            // Obtener el contenedor
-                            var contenedor = document.getElementById("input-historial");
-
-                            // Obtener la lista de elementos hijos (inputs y br)
-                            var elementos = contenedor.childNodes;
-
-                            // Verificar si hay al menos dos elementos para evitar eliminar el primer input
-                            if (elementos.length > 2) {
-                            // Eliminar el último input
-                                contenedor.removeChild(elementos[elementos.length - 1]);
-                            
-                            }
-                        }
-                        function agregarInput2() {
-                          // Crear un nuevo input
-                          var nuevoInput = document.createElement("input");
-                          nuevoInput.type = "text";
-                          nuevoInput.name = "problemsalud[]";
-                          nuevoInput.placeholder = "Ingresa el problema";
-                          nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
-                      
-                          // Obtener el contenedor y agregar el nuevo input
-                          var contenedor = document.getElementById("input-salud");
-                          contenedor.appendChild(nuevoInput);
-                        }
-
-                        function eliminarInput2() {
-                            // Obtener el contenedor
-                            var contenedor = document.getElementById("input-saud");
-
-                            // Obtener la lista de elementos hijos (inputs y br)
-                            var elementos = contenedor.childNodes;
-
-                            // Verificar si hay al menos dos elementos para evitar eliminar el primer input
-                            if (elementos.length > 2) {
-                            // Eliminar el último input
-                                contenedor.removeChild(elementos[elementos.length - 1]);
-                            
-                            }
-                        }
-                      </script>
                     </ul>
                     
                     <h6 class = "bold-text">Medicamentos Actuales: </h6>
@@ -160,9 +93,23 @@
                     <h6 class = "bold-text">Descirpción general: </h6>
                     <textarea class="d-inline textarea-descripcion" placeholder="Ingrese descripción"></textarea>
                 </div>
+
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <br><br>
+                    <h6 class="mb-4 bold-text" >Inserta imágen del perro: </h6>
+                    <div class="custom-file-upload">
+                        <input type="file" id="file" name="myfiles[]"/>
+                    </div>
+
+                    <br>
+                    <h5>Información de Contacto: </h5>
+                    <h6 class="d-inline bold-text" ><i class="fa-solid fa-location-dot" style="color: #00000a;"></i> Dirección: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "text" placeholder="Ingrese su dirección" style="margin: 1px; margin-bottom: 15px;"></input></p><br>
+                    <h6 class="d-inline bold-text"><i class="fa-solid fa-phone" style="color: #00000a;"></i> Teléfono: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "text" placeholder="Ingrese su número" style="margin: 1px; margin-left:5px; margin-bottom: 15px;"></input></p><br>
+                    <h6 class="d-inline bold-text"><i class="fa-solid fa-envelope" style="color: #00000a;"></i> Correo: </h6><p class="d-inline normal-text" ><input class="d-inline normal-text" type = "email" placeholder="Ingrese su correo" style="margin: 1px; margin-left:20px"></input></p><br>
+                </div>
             </div>
         </div>
-        
+        <button class ="button-inputs" style = "margin-left: 50%; height:40px; width:100px; background-color: #f4bf6c; color: white;">Submit</button>
     </div>
     
   </main>

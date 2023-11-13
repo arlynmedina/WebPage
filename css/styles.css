@@ -11439,3 +11439,20 @@ ul {
 }
 
 
+.custom-file-upload-hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  margin: 0px; 
+}
+.custom-file-upload {
+  margin: 1px; 
+  width: auto;
+  font-weight: 20;
+  border: 0.5px solid;
+}
+.file-upload-wrapper {
+  position: relative; 
+  
+}
+
