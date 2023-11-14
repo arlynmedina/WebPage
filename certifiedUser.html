@@ -38,35 +38,52 @@
         </div>
     </nav>
 
+    <header>
+        <img src="assets/img/dogs/beagle.jpg" style="height: 450px; object-fit: cover; object-position: center; " alt="...">
+        <div class="header-text-container">
+            <div class="masterhead-heading">Haz elegido convertirte en un miembro certificado</div>
+        </div>
+    </header>
+
 <main>
-    <div id="mainContainer-certified">
-        <div class="container-fluid py-5">
-            <div class="container text-center" id="content-container">
-                <h2>Información de Contacto: </h2>
-                <!--NOMBRE-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Nombre/s: </h6><br><input class="d-inline normal-text content-items" type = "text" placeholder="Ingresa tu nombre/s" style="margin: 1px;" ></input><br>
-                <!--APELLIDO-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Apellido/s: </h6><br><input class="d-inline normal-text content-items" type = "text" placeholder="Ingresa tu Apellido/s" style="margin: 1px;"></input><br>
-                <!--EDAD-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Edad: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu edad" style="margin: 1px;"></input><br>
-                <!--OCUPACION-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Ocupación: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu ocupacion" style="margin: 1px;"></input><br>
-                <!--DOMICILIO-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Domicilio: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu domicilio" style="margin: 1px;"></input><br>
-                <!--NUMERO DE TELEFONO-->
-                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Teléfono: </h6><br><input class="d-inline normal-text content-items" type = "text" placeholder="Ingresa tu número telefónico" style="margin: 1px;" id="input-telefono"></input><br>
-                <!--FECHA DE NACIMIENTO-->
-                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Fecha de nacimiento: </h6><br><input class="d-inline normal-text content-items" type = "date" placeholder="Ingresa tu nacimiento" style="margin: 1px;" id="input-nacimiento"></input><br>
-                <!--FOTOGRAFIA DEL APLICADOR-->
-                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Fotografia: </h6><br><input class="d-inline normal-text content-items" type = "file" placeholder="Ingresa tu nacimiento" style="margin: 1px;"></input><br>
-                <!--IDENTIFICACION OFICIAL-->
-                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Identificacion oficial: </h6><br><input class="d-inline normal-text content-items" type = "file" placeholder="Ingresa tu nacimiento" style="margin: 1px;"></input><br>
+    <div class="container">
+        <br>
+        <h3 class="text-primary bold-text" style="margin-left: 33%">Información de Contacto</h3>
+        <div class="row">
+            <div class="col-lg-7 align-items-center">
+                <br><br>
+                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-signature"></i> Nombre Completo: </h6><br><input class="d-inline normal-text content-items" type = "text" placeholder="Ingresa tu nombre/s" style="margin: 1px; width: 350px;" ></input><br><br>
+                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-briefcase"></i> Ocupación: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu ocupacion" style="margin: 1px; width: 350px;"></input><br><br>
+                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-location-dot"></i> Domicilio: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu domicilio" style="margin: 1px; width: 350px;"></input><br><br>
+                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-phone"></i> Teléfono: </h6><br><input class="d-inline normal-text content-items" type = "text" placeholder="Ingresa tu número telefónico" style="margin: 1px; width: 350px;" id="input-telefono "></input><br>
+                
+                
+            </div>
+            <div class="col-lg-5 pb-4 pb-lg-0">
+                <br><br>
+                <h6 class="d-inline bold-text content-items" ><i class="fa-solid fa-user"></i> Edad: </h6><br><input class="d-inline normal-text content-items" type = "number" placeholder="Ingresa tu edad" style="margin: 1px; width:250px;"></input><br><br>
+                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-cake-candles"></i>Fecha de nacimiento: </h6><br><input class="d-inline normal-text content-items" type = "date" placeholder="Ingresa tu nacimiento" style="margin: 1px; width:250px;" id="input-nacimiento"></input><br><br>
+                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-camera"></i></i> Fotografia: </h6><br>
+                <div class="custom-file-upload">
+                    <input type="file" id="file-fotografia"/>
+                </div><br>
+                <h6 class="d-inline bold-text content-items"><i class="fa-solid fa-address-card"></i> Identificacion oficial: </h6><br>
+                <div class="custom-file-upload">
+                    <input type="file" id="file-identificacion"/>
+                </div>
+                
             </div>
         </div>
-</div><!---div del fondo de imagen-->
+    </div>
+    <button class ="button-inputs" style = "margin-left: 43%; height:40px; width:100px; background-color: #f4bf6c; color: white;">Submit</button>
 
+
+
+
+    
 </main>
     <footer>
+        <img class="img-fluid" src="assets/img/dogs/footer4.png" style="max-width: 100%;" alt="">
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
