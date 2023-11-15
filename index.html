@@ -1,126 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>HappyPaws</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/WebPage/css/styles.css" rel="stylesheet"/>
-</head>
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#page-top"><img width="150" height="200" src="assets/img/HappyPaws.svg" alt="..."/></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-target="#iniciarSesionModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--Modal iniciar sesion-->
-    
-    <!-- Modal Body -->
-    <div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">Iniciar Sesión</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="correo" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Correo eletronico</label>
-                        <div class="input-group mb-3">
-                            <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <div id="contra" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Contraseña</label>
-                        <div class="input-group mb-3">
-                            <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <!--Boton iniciar sesion-->
-                    <div>
-                        <button type="button" class="btn btn-primary">Iniciar sesión</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <span>¿No tienes cuenta?<a data-bs-target="#registroModal" data-bs-toggle="modal" href="">¡Registrate!</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!--Modal registro-->
-    <!-- Modal Body -->
-    <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">Registrarse</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="nombre" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Nombre</label>
-                        <div class="input-group mb-3">
-                            <input type="text" placeholder="Ingresa tu nombre" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <div id="apellidos" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Apellidos</label>
-                        <div class="input-group mb-3">
-                            <input type="text" placeholder="Ingresa tus apellidos" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <div id="correo" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Correo Electrónico</label>
-                        <div class="input-group mb-3">
-                            <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <div id="contra" class="modalSesion">
-                        <form action="" class="mb-3"></form>
-                        <label>Contraseña</label>
-                        <div class="input-group mb-3">
-                            <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                            <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                        </div>
-                    </div>
-                    <!--Boton iniciar sesion-->
-                    <div>
-                        <button type="button" class="btn btn-primary">Registrarse</button>
-                    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HappyPaws</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img width="150" height="200" src="assets/img/HappyPaws.svg" alt="..."/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
