@@ -27,102 +27,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#program">Programa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Perritos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Proceso</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
-                        <li class="nav-item"><a class="nav-link" data-bs-target="#iniciarSesionModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="dogBreedInfo.html">Beagle</a>
+                                <a class="dropdown-item" href="dogBreedInfo.html">Husky</a>
+                                <a class="dropdown-item" href="dogBreedInfo.html">Chihuahua</a>
+                                <a class="dropdown-item" href="dogBreedInfo.html">Shihtzu</a>
+                            </div>
+                        <li class="nav-item"><a class="nav-link" href="/WebPage/uploadDog.html">Adopción</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="certifiedUser.html">Verificarse</a>
+                                <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
                     </ul>
                 </div>
             </div>
         </nav>
-
-        <!-- Modal Body -->
-        <div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitleId">Iniciar Sesión</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="correo" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Correo eletronico</label>
-                            <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <div id="contra" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Contraseña</label>
-                            <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <!--Boton iniciar sesion-->
-                        <div>
-                            <button type="button" class="btn btn-primary" onclick="cambiarHome()">Iniciar sesión</button>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <span>¿No tienes cuenta?<a data-bs-target="#registroModal" data-bs-toggle="modal" href="">¡Registrate!</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal registro -->
-        <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitleId">Registrarse</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="nombre" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Nombre</label>
-                            <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tu nombre" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <div id="apellidos" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Apellidos</label>
-                            <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tus apellidos" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <div id="correo" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Correo Electrónico</label>
-                            <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <div id="contra" class="modalSesion">
-                            <form action="" class="mb-3"></form>
-                            <label>Contraseña</label>
-                            <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                            </div>
-                        </div>
-                        <!-- Boton iniciar sesion -->
-                        <div>
-                            <button type="button" class="btn btn-primary">Registrarse</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Masthead-->
         <header class="masthead">

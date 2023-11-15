@@ -43,3 +43,11 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+function cambiarHome(){
+    window.location.replace("/WebPage/loginIn.html");
+}
+
+function cerrarSesion(){
+    window.location.replace("/WebPage/index.html");
+}
