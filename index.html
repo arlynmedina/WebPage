@@ -31,11 +31,49 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-target="#iniciarSesionModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!--Modal iniciar sesion-->
+        
+        <!-- Modal Body -->
+        <div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Iniciar Sesión</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="correo" class="modalSesion">
+                            <form action="" class="mb-3"></form>
+                            <label>Correo eletronico</label>
+                            <div class="input-group mb-3">
+                                <input type="text" placeholder="Ingresa tu correo" class="circular-border">
+                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
+                            </div>
+                        </div>
+                        <div id="contra" class="modalSesion">
+                            <form action="" class="mb-3"></form>
+                            <label>Contraseña</label>
+                            <div class="input-group mb-3">
+                                <input type="text" placeholder="Ingresa tu contraseña" class="circular-border">
+                                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
+                            </div>
+                        </div>
+                        <!--Boton iniciar sesion-->
+                        <div>
+                            <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label>¿No tienes cuenta? ¡Registrate!</label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
