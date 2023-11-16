@@ -91,6 +91,7 @@
   }
 }
 
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -11252,7 +11253,7 @@ header.masthead .masthead-heading {
 }
 
 .img-brand {
-  height: 2.75rem;
+  height: auto;
 }
 
 section#contact {
@@ -11313,4 +11314,233 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-align: center;
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#rating-energia {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.star {
+  width: 23px;
+  height: 23px;
+  background-color: #ddd; /* Color de la estrella no coloreada (gris claro en este caso) */
+  margin: 0 5px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+header {
+  position: relative;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.header-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  z-index: 2; /* Asegura que el texto esté sobre la imagen */
+}
+
+.header-text-container div {
+  margin: 10px; /* Añade margen alrededor del texto para mejorar la legibilidad */
+}
+
+ul {
+  list-style: none; /* Quitar los puntos */
+  padding: 0; /* Eliminar el relleno predeterminado de la lista */
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+}
+
+.rating > input{ display:none;}
+
+.rating > label {
+  
+    width: 1em;
+    font-size: 28px;
+    color: #FFD600;
+    cursor: pointer;
+}
+.rating > label::before{ 
+  content: "\2605";
+  position: absolute;
+  opacity: 0;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+  opacity: 1 !important;
+}
+
+.rating > input:checked ~ label:before{
+  opacity:1;
+}
+
+.rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+
+.button-inputs{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  margin-top: 10px; 
+  font-weight:300; 
+  border-width: 0px;  
+  background: transparent; 
+  margin-left: 20%;
+}
+
+.input-text{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width: 70%;
+}
+
+.textarea-medicamentos{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:50%; 
+  height:100px;
+}
+
+.circular-border{
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 40px;
+}
+
+#iniciarSesionModal .modal-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#iniciarSesionModal .modal-footer {
+  text-align: center;
+  justify-content: center;
+}
+
+
+.textarea-descripcion{
+  font-weight: 200; 
+  margin: 1px; 
+  min-width:90%; 
+  height:200px
+}
+
+.masterhead-heading{
+  font-size: 50px; 
+  font-weight: 550; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.masterhead-subheading{
+  font-size: 35px; 
+  font-weight: 400; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.normal-text{
+  font-weight: 200;
+}
+
+.bold-text{
+  font-weight: 500;
+}
+
+
+.custom-file-upload-hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  margin: 0px; 
+}
+.custom-file-upload {
+  margin: 1px; 
+  width: auto;
+  font-weight: 20;
+  border: 0.5px solid;
+}
+.file-upload-wrapper {
+  position: relative; 
+  
+}
+
+#registroModal .modal-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#registroModal .modal-footer {
+  text-align: center;
+  justify-content: center;
+}
+
+#registroModal .modal-dialog{
+  width: 350px;
+  max-width: 1000px;
+}
+
+#imagenPrincipalVerificacion{
+  filter: brightness(40%);
+}
+
+#mainContainer-certified {
+  position: relative;
+}
+
+#mainContainer-certified::before {
+  content: '';
+  background-image: url('/WebPage/assets/img/dogs/beagle.jpg'); 
+  background-size: cover;
+  background-position: center;
+  filter: brightness(30%); 
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content-items{
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#content-container {
+  /* Ajusta el espacio interno del contenedor de contenido */
+  padding: 50px;
+  color: whitesmoke;
+}
+
+#input-telefono{
+  width: 250px;
+  border-radius: 10px;
+}
+#input-nacimiento{
+  width: 250px;
+  border-radius: 10px;
+}
+
+.brands-container{
+  min-height: 150px;
 }
