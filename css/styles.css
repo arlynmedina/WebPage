@@ -91,6 +91,7 @@
   }
 }
 
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -11252,7 +11253,7 @@ header.masthead .masthead-heading {
 }
 
 .img-brand {
-  height: 2.75rem;
+  height: auto;
 }
 
 section#contact {
@@ -11411,12 +11412,23 @@ ul {
   height:100px;
 }
 
+.circular-border{
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 40px;
+}
+
 #iniciarSesionModal .modal-body {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#iniciarSesionModal .modal-footer {
+  text-align: center;
+  justify-content: center;
 }
 
 .textarea-descripcion{
@@ -11445,7 +11457,6 @@ ul {
 .bold-text{
   font-weight: 500;
 }
-
 
 .custom-file-upload-hidden {
   display: none;
@@ -11486,3 +11497,48 @@ ul {
   filter: brightness(40%);
 }
 
+#mainContainer-certified {
+  position: relative;
+}
+
+#mainContainer-certified::before {
+  content: '';
+  background-image: url('/WebPage/assets/img/dogs/beagle.jpg'); 
+  background-size: cover;
+  background-position: center;
+  filter: brightness(30%); 
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content-items{
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#content-container {
+  /* Ajusta el espacio interno del contenedor de contenido */
+  padding: 50px;
+  color: whitesmoke;
+}
+
+#input-telefono{
+  width: 250px;
+  border-radius: 10px;
+}
+#input-nacimiento{
+  width: 250px;
+  border-radius: 10px;
+}
+
+.brands-container{
+  min-height: 150px;
+}
