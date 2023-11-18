@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 function agregarInput() {
     // Crear un nuevo input
     var nuevoInput = document.createElement("input");
@@ -9,9 +11,9 @@ function agregarInput() {
     // Obtener el contenedor y agregar el nuevo input
     var contenedor = document.getElementById("input-historial");
     contenedor.appendChild(nuevoInput);
-  }
+}
 
-  function eliminarInput() {
+function eliminarInput() {
       // Obtener el contenedor
       var contenedor = document.getElementById("input-historial");
 
@@ -53,3 +55,64 @@ function agregarInput() {
       }
   }
 
+
+let dogSchema = new mongoose.Schema({
+    nombre: {
+      type: String,
+      required: true
+    },  
+    edad: {
+      type: Number,
+      required: true
+    },
+    raza: {
+      type: String,
+      required: true
+    },
+    color: {
+      type: String,
+      required: true
+    },
+    energia: {
+      type: Number,
+      min: 1,
+      max: 5,
+      required: true
+    },
+    historialM: {
+      type: [String],
+      required: true
+    },
+    problemasS: {
+      type: [String],
+      required: true
+    },
+    medicamentos: {
+      type: String,
+      required: true
+    },
+    descripcion: {
+      type: String,
+      required: true
+    },
+    imagen: {
+      type: String,
+      required: true
+    },
+    direccion: {
+      type: String,
+      required: true
+    },
+    telefono: {
+      type: Number,
+      required: true
+    },
+    correo: {
+      type: String,
+      requires: true
+    }
+});
+
+const Dog = mongoose.model('Dog', dogSchema);
+
+module.exports = Dog;
