@@ -23,7 +23,7 @@ function showDogDescription(selectedValue) {
     xhr.onload = function () {
         let info = JSON.parse(xhr.response);
         // Continue with the rest of your code...
-        item += `<div class="row align-items-center">
+        item += `<div class="row">
         <div class="col-lg-5 pb-4 pb-lg-0">
             <br>
             <img class="img-fluid" src=${info.imagen} style="width: 100%; max-height: 700px;" alt="">
