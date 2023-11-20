@@ -32,6 +32,5 @@ let infodogSchema = new Schema({
         required: true
     }
 });
-
 //crear modelo de los usuarios
 module.exports = model("InfoDog",infodogSchema);

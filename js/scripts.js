@@ -45,9 +45,9 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 function cambiarHome(){
-    window.location.replace("/WebPage/loginIn.html");
+    window.location.replace("/WebPage/views/loginIn.html");
 }
 
 function cerrarSesion(){
-    window.location.replace("/WebPage/index.html");
+    window.location.replace("/WebPage/views/index.html");
 }

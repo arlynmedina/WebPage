@@ -2,9 +2,22 @@ const {Router} = require('express');
 const router = Router();
 
 //modelo
-const InfoDog = require('../models/InfodogModel'); //modelo de guia
+const InfoDog = require('../models/InfodogModel'); //modelo de usuario
 
-//rutas de x raza de perros
+
+//ruta de todo lo que hay en raza de perros
+router.get('/infodogs',async(req,res)=>{
+    try{
+        // Buscar las razas disponibles en la base de datos
+        const guias = await InfoDog.find();
+        res.status(200).json(guias);
+
+    }catch(error){
+        res.status(500).send("No se pudieron obtener las guias"+ error.message);
+    }
+});
+
+//rutas de usuarios
 router.get('/infodogs/:nombre',async(req,res)=>{
     try{
         // Obtener el nombre del parámetro en la URL
@@ -25,17 +38,7 @@ router.get('/infodogs/:nombre',async(req,res)=>{
         res.status(500).send("No se pudo obtener la informacion del perro "+ error.message);
     }
 });
-//ruta de todo lo que hay en raza de perros
-router.get('/infodogs',async(req,res)=>{
-    try{
-        // Buscar las razas disponibles en la base de datos
-        const guias = await InfoDog.find();
-        res.status(200).json(guias);
 
-    }catch(error){
-        res.status(500).send("No se pudieron obtener las guias"+ error.message);
-    }
-});
 
 module.exports = router;
 
