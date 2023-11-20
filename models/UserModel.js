@@ -25,6 +25,10 @@ const userShema = new Schema({
     perrosDadosEnAdopcion:{
         type:[String],
         required: true
+    },
+    verificado:{
+        type:Boolean,
+        required:true
     }
 });
 

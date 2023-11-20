@@ -23,6 +23,7 @@ router.post('/users',async(req,res)=>{
             correo: req.body.correo,
             contra: req.body.contra,
             perrosDadosEnAdopcion: req.body.perrosDadosEnAdopcion,
+            verificado:req.body.verificado
         });
         //encriptamos la contra
         let contraEncriptada = nuevoUsuario.encriptarContra(req.body.contra);

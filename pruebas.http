@@ -22,7 +22,8 @@ Content-Type: application/json
     "apellidos":"tilin",
     "correo": "ailintilin@gmail.com.mx",
     "contra": "6789",
-    "perrosEnAdopcion": ["Cachi"]
+    "perrosEnAdopcion": ["Cachi"],
+    "verificado":false
 }
 
 ###posteamos a ximena
