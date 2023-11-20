@@ -12,7 +12,7 @@ let infodogSchema = new Schema({
         required: true
     },
     salud: {
-        type: Number,
+        type: String,
         required: true
     },
     ejercicio: {
@@ -32,5 +32,6 @@ let infodogSchema = new Schema({
         required: true
     }
 });
+
 //crear modelo de los usuarios
 module.exports = model("InfoDog",infodogSchema);

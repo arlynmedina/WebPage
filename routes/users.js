@@ -24,13 +24,17 @@ router.post('/users',async(req,res)=>{
             contra: req.body.contra,
             perrosDadosEnAdopcion: req.body.perrosDadosEnAdopcion,
         });
+        //encriptamos la contra
+        let contraEncriptada = nuevoUsuario.encriptarContra(req.body.contra);
+        //asiganmos la nueva contra
+        nuevoUsuario.contra = contraEncriptada; 
+
         //lo guardamos en la base de datos
         let usuarioGuardado = await nuevoUsuario.save();
         res.status(201).json(usuarioGuardado);
     }catch(error){
         res.status(400).send(error);
     };
-
 });
 
 module.exports = router;

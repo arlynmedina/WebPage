@@ -1,7 +1,6 @@
 ###OBTENER LOS USUARIOS
 GET http://localhost:3000/users
 
-
 ###postear un usuario
 POST http://localhost:3000/users
 Content-Type: application/json
@@ -44,4 +43,7 @@ GET http://localhost:3000/dogs
 
 //INFO DOGS
 ###OBTENER X PERRITO
-GET http://localhost:3000/dogs/beagle
+GET http://localhost:3000/infodogs/Husky
+
+###todas las razas disponibles
+GET http://localhost:3000/infodogs
