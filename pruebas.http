@@ -39,7 +39,7 @@ Content-Type: application/json
 
 /////PERRITOS
 ###OBTENER LOS PERROS
-GET http://localhost:3000/dogs/a
+GET http://localhost:3000/dogs/Luna
 
 //INFO DOGS
 ###OBTENER X PERRITO
