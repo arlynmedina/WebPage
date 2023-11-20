@@ -28,6 +28,26 @@ submitButton.addEventListener('click', () => {
     const direccion = document.getElementById('direccion').value;
     const telefono = document.getElementById('telefono').value;
     const correo = document.getElementById('correo').value;
+
+    const dogJSON = {
+        nombre: nombreP,
+        edad: edadP,
+        raza: razaP,
+        color: colorP,
+        energia: energiaP,
+        historialMedico: historialP,
+        problemasSalud: problemasP,
+        medicamentos: medicamentosP,
+        descripcion: descripcionP,
+        imagen: imagenP,
+        direccion: direccion,
+        telefono: telefono,
+        correo: correo
+    };
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('PUT','http://localhost:3000/dogs');
+    xhr.send(dogJSON);
 })
 
 function agregarInput() {

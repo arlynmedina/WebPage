@@ -6,7 +6,6 @@ function showDogInfo(selectedValue){
     xhr.send();
     let item = '';
     let dogInfo = document.getElementById('dogInfo');
-    
     console.log(dogInfo);
     xhr.onload = function(){
         let info = JSON.parse(xhr.response);
