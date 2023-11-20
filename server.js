@@ -1,30 +1,25 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const Dog = require('/WebPage/js/uploadDog.js');
+//necesitamos nuestra base de datos
+require("./database");
+//evitar cors
+const cors = require("cors");
 
-
+//crear servidor
 const app = express();
-const port = 3000;
 
+//middlewares
+app.use(cors());
 app.use(express.json());
 
-let mongoConnection = "mongodb+srv://arlynmedina:admin@myapp.e5mj3za.mongodb.net/"
-let db = mongoose.connection;
+//routes
+app.use(require("./routes/dogs"));
+app.use(require("./routes/users"));
+app.use(require("./routes/info"));
 
-mongoose.connect(mongoConnection,{useNewUrlParser:true});
 
+//inicializar
+app.listen(3000,()=>{
+    console.log("Servidor en funcionamiento");
+})
 
-db.on("connecting",()=>{
-    console.log("Conectando...");
-    console.log(mongoose.connection.readyState);
-});
-db.on("connected",()=>{
-    console.log("Conectado exitosamente");
-    console.log(mongoose.connection.readyState);
-});
-
-mongoose.connect(mongoConnection,{useNewUrlParser:true});
-
-app.listen(port, () => {
-    console.log(`Server on port: ${port}`);
-});
+module.exports = app;
