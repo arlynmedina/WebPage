@@ -139,17 +139,22 @@ function eliminarInput2() {
         }
     }
 
-    function guardarImagen(){
-        let inputDeImagen =  document.getElementById('fileInput');
-        
-        if(inputDeImagen.files.length >0){
-            let archivoSeleccionado = inputDeImagen.files[0];
-        }
-        var formData = new FormData();
-        formData.append('archivo',archivoSeleccionado);
+    function guardarImagen() {
+        console.log("EN LA FUNCION DE GUARDAR ARCHIVO");
+        let inputDeImagen = document.getElementById('fileInput');
     
-        //realizamos la solicitud de guardar nuestro documentos
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST','http://localhost:3000/upload');
-        xhr.send(formData);
+        if (inputDeImagen.files.length > 0) {
+            let archivoSeleccionado = inputDeImagen.files[0];
+    
+            var formData = new FormData();
+            formData.append('archivo', archivoSeleccionado);
+    
+            // realizamos la solicitud de guardar nuestro documentos
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/upload');
+            xhr.send(formData);
+        } else {
+            console.error('No se ha seleccionado ningún archivo.');
+        }
     }
+    
