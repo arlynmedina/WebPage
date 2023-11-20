@@ -18,13 +18,13 @@ router.get('/infodogs',async(req,res)=>{
 });
 
 //rutas de usuarios
-router.get('/infodogs/:nombre',async(req,res)=>{
+router.get('/infodogs/:raza',async(req,res)=>{
     try{
         // Obtener el nombre del parámetro en la URL
         const razaPerro = req.params.raza;
 
         // Buscar el usuario en la base de datos por el nombre
-        const usuario = await InfoDog.findOne({ nombre: razaPerro });
+        const usuario = await InfoDog.findOne({ raza: razaPerro });
 
         // Verificar si se encontró el usuario
         if (!usuario) {

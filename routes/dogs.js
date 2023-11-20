@@ -14,6 +14,29 @@ router.get("/dogs",async(req,res)=>{
     }
 });
 
+//ruta de perros en especifico
+router.get("/dogs/:nombre",async(req,res)=>{
+    try{
+        //obtenemos el nombre del perro 
+        const nombrePerro = req.params.nombre;
+
+        //buscar el perro por el nombre que obtuvimos
+        const perro = await Dog.findOne({
+            nombre:nombrePerro
+        });
+
+        // Verificar si se encontró el perro
+        if (!perro) {
+            return res.status(404).json({ mensaje: 'Perro no encontrado' });
+        }
+        // Devolver el usuario encontrado como respuesta
+        res.status(200).json(perro);
+
+    }catch(error){
+        res.status(500).send("No se pudo obtener el perro"+ error.message);
+    }
+});
+
 router.post('/dogs',async(req,res)=>{
     try{
         //creamos del perro a guardar
@@ -38,5 +61,6 @@ router.post('/dogs',async(req,res)=>{
         res.status(400).send(error);
     }
 });
+
 
 module.exports = router;

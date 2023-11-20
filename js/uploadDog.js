@@ -23,7 +23,7 @@ submitButton.addEventListener('click', () => {
     const problemasP = valoresProblemas
     const medicamentosP = document.getElementById('medicamentos').value;
     const descripcionP = document.getElementById('descripcion').value;
-    const imagenP = document.getElementById('imagenPerro').value;
+    const imagenP = document.getElementById('fileInput').value;
     const direccion = document.getElementById('direccion').value;
     const telefono = document.getElementById('telefono').value;
     const correo = document.getElementById('correo').value;
@@ -137,4 +137,19 @@ function eliminarInput() {
         else{
             valoresProblemas.push(inputValue.value);
         }
+    }
+
+    function guardarImagen(){
+        let inputDeImagen =  document.getElementById('fileInput');
+        
+        if(inputDeImagen.files.length >0){
+            let archivoSeleccionado = inputDeImagen.files[0];
+        }
+        var formData = new FormData();
+        formData.append('archivo',archivoSeleccionado);
+    
+        //realizamos la solicitud de guardar nuestro documentos
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','http://localhost:3000/upload');
+        xhr.send(formData);
     }

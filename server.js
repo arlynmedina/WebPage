@@ -10,6 +10,7 @@ const app = express();
 //middlewares
 app.use(cors());
 app.use(express.json());
+app.use(require("./routes/archivos"));
 
 //routes
 app.use(require("./routes/dogs"));
