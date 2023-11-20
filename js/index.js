@@ -1,5 +1,6 @@
-const itemsPerPage = 6; 
-let currentPage = 1; 
+const itemsPerPage = 6;
+let currentPage = 1;
+let selectedValue = "example"; // Aquí debes definir el valor de selectedValue
 
 function showDogInfoIndex(selectedValue, page) {
     let xhr = new XMLHttpRequest();
@@ -11,7 +12,7 @@ function showDogInfoIndex(selectedValue, page) {
 
     let item = '';
     let dogInfoIndex = document.getElementById('dogInfoIndex');
-    
+
     xhr.onload = function () {
         let dogs = JSON.parse(xhr.response);
 
@@ -35,7 +36,7 @@ function showDogInfoIndex(selectedValue, page) {
         }
 
         dogInfoIndex.innerHTML = item;
-    }
+    };
 }
 
 function paginate(page) {
@@ -43,6 +44,8 @@ function paginate(page) {
     showDogInfoIndex(selectedValue, currentPage);
 }
 
-buttonElement.addEventListener('click', function() {
-    paginate(2); 
+const buttonElement = document.getElementById('buttonElement');
+
+buttonElement.addEventListener('click', function () {
+    paginate(2);
 });
