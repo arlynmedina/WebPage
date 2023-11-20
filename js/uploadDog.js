@@ -1,4 +1,3 @@
-
 const submitButton = document.getElementById('submit-dog');
 const ratingDiv = document.getElementById('energia');
 const radioButtons = ratingDiv.querySelectorAll('input[type="radio"]');
@@ -24,11 +23,12 @@ submitButton.addEventListener('click', () => {
     const problemasP = valoresProblemas
     const medicamentosP = document.getElementById('medicamentos').value;
     const descripcionP = document.getElementById('descripcion').value;
-    const imagenP = document.getElementById('imagenPerro').value;
+    const imagenP = document.getElementById('fileInput').value;
     const direccion = document.getElementById('direccion').value;
     const telefono = document.getElementById('telefono').value;
     const correo = document.getElementById('correo').value;
 
+    
     const dogJSON = {
         nombre: nombreP,
         edad: edadP,
@@ -46,8 +46,9 @@ submitButton.addEventListener('click', () => {
     };
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT','http://localhost:3000/dogs');
-    xhr.send(dogJSON);
+    xhr.open('POST','http://localhost:3000/dogs');
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify(dogJSON));
 })
 
 function agregarInput() {
@@ -105,50 +106,50 @@ function eliminarInput2() {
     // Obtener la lista de elementos hijos (inputs y br)
     var elementos = contenedor.childNodes;
 
-    // Verificar si hay al menos dos elementos para evitar eliminar el primer input
-    if (elementos.length > 2) {
-    // Eliminar el último input
+      // Verificar si hay al menos dos elementos para evitar eliminar el primer input
+      if (elementos.length > 2) {
+      // Eliminar el último input
         if(elementos[elementos.length - 1].value != '')
             valoresProblemas.pop();
         contenedor.removeChild(elementos[elementos.length - 1]);
+      
+      }
+  }
+
+
+    // Función para agregar el valor del input a la lista
+    function agregarValor(inputValue) {
+        console.log(inputValue.value)
+        // Obtener el valor del input
+        if (inputValue.name <= valoresHistorial.length){
+            valoresHistorial[inputValue.name] = inputValue.value
+        }
+        else{
+            valoresHistorial.push(inputValue.value);
+        }
+    }
+
+    function agregarValor2(inputValue) {
+        // Obtener el valor del input
+        if (inputValue.name <= valoresProblemas.length){
+            valoresProblemas[inputValue.name] = inputValue.value
+        }
+        else{
+            valoresProblemas.push(inputValue.value);
+        }
+    }
+
+    function guardarImagen(){
+        let inputDeImagen =  document.getElementById('fileInput');
+        
+        if(inputDeImagen.files.length >0){
+            let archivoSeleccionado = inputDeImagen.files[0];
+        }
+        var formData = new FormData();
+        formData.append('archivo',archivoSeleccionado);
     
+        //realizamos la solicitud de guardar nuestro documentos
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','http://localhost:3000/upload');
+        xhr.send(formData);
     }
-}
-
-
-// Función para agregar el valor del input a la lista
-function agregarValor(inputValue) {
-    console.log(inputValue.value)
-    // Obtener el valor del input
-    if (inputValue.name <= valoresHistorial.length){
-        valoresHistorial[inputValue.name] = inputValue.value
-    }
-    else{
-        valoresHistorial.push(inputValue.value);
-    }
-}
-
-function agregarValor2(inputValue) {
-    // Obtener el valor del input
-    if (inputValue.name <= valoresProblemas.length){
-        valoresProblemas[inputValue.name] = inputValue.value
-    }
-    else{
-        valoresProblemas.push(inputValue.value);
-    }
-}
-
-function guardarImagen(){
-    let inputDeImagen =  document.getElementById('fileInput');
-    
-    if(inputDeImagen.files.length >0){
-        let archivoSeleccionado = inputDeImagen.files[0];
-    }
-    var formData = new FormData();
-    formData.append('archivo',archivoSeleccionado);
-
-    //realizamos la solicitud de guardar nuestro documentos
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST','http://localhost:3000/upload');
-    xhr.send(formData);
-}
