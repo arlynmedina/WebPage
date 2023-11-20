@@ -15,7 +15,7 @@ dropdownItems.forEach(item => {
     });
 });
 
-const portfolioItem = document.querySelector('.portfolio-item');
+const portfolioItem = document.getElementById('dog-description');
 
 if (portfolioItem) {
     const link = portfolioItem.querySelector('.portfolio-link');
@@ -31,4 +31,5 @@ if (portfolioItem) {
         window.location.href = 'dogDescription.html';
     });
 }
+
 

@@ -1,7 +1,6 @@
 const selectedValue = sessionStorage.getItem("selectedValue");
 
 function showDogInfo(selectedValue){
-    console.log(selectedValue)
     let xhr = new XMLHttpRequest();
     xhr.open('GET','http://localhost:3000/infodogs/' + selectedValue);
     xhr.send();
