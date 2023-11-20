@@ -98,42 +98,57 @@ function eliminarInput() {
     contenedor.appendChild(nuevoInput);
   }
 
-  function eliminarInput2() {
-      // Obtener el contenedor
-      var contenedor = document.getElementById("input-salud");
+function eliminarInput2() {
+    // Obtener el contenedor
+    var contenedor = document.getElementById("input-salud");
 
-      // Obtener la lista de elementos hijos (inputs y br)
-      var elementos = contenedor.childNodes;
+    // Obtener la lista de elementos hijos (inputs y br)
+    var elementos = contenedor.childNodes;
 
-      // Verificar si hay al menos dos elementos para evitar eliminar el primer input
-      if (elementos.length > 2) {
-      // Eliminar el último input
+    // Verificar si hay al menos dos elementos para evitar eliminar el primer input
+    if (elementos.length > 2) {
+    // Eliminar el último input
         if(elementos[elementos.length - 1].value != '')
             valoresProblemas.pop();
         contenedor.removeChild(elementos[elementos.length - 1]);
-      
-      }
-  }
-
-
-    // Función para agregar el valor del input a la lista
-    function agregarValor(inputValue) {
-        console.log(inputValue.value)
-        // Obtener el valor del input
-        if (inputValue.name <= valoresHistorial.length){
-            valoresHistorial[inputValue.name] = inputValue.value
-        }
-        else{
-            valoresHistorial.push(inputValue.value);
-        }
+    
     }
+}
 
-    function agregarValor2(inputValue) {
-        // Obtener el valor del input
-        if (inputValue.name <= valoresProblemas.length){
-            valoresProblemas[inputValue.name] = inputValue.value
-        }
-        else{
-            valoresProblemas.push(inputValue.value);
-        }
+
+// Función para agregar el valor del input a la lista
+function agregarValor(inputValue) {
+    console.log(inputValue.value)
+    // Obtener el valor del input
+    if (inputValue.name <= valoresHistorial.length){
+        valoresHistorial[inputValue.name] = inputValue.value
     }
+    else{
+        valoresHistorial.push(inputValue.value);
+    }
+}
+
+function agregarValor2(inputValue) {
+    // Obtener el valor del input
+    if (inputValue.name <= valoresProblemas.length){
+        valoresProblemas[inputValue.name] = inputValue.value
+    }
+    else{
+        valoresProblemas.push(inputValue.value);
+    }
+}
+
+function guardarImagen(){
+    let inputDeImagen =  document.getElementById('fileInput');
+    
+    if(inputDeImagen.files.length >0){
+        let archivoSeleccionado = inputDeImagen.files[0];
+    }
+    var formData = new FormData();
+    formData.append('archivo',archivoSeleccionado);
+
+    //realizamos la solicitud de guardar nuestro documentos
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','http://localhost:3000/upload');
+    xhr.send(formData);
+}

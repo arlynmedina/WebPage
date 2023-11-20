@@ -37,13 +37,22 @@ Content-Type: application/json
     "perrosEnAdopcion": []
 }
 
+
+
 /////PERRITOS
 ###OBTENER LOS PERROS
 GET http://localhost:3000/dogs
 
+###OBTENER X PERRO
+GET http://localhost:3000/dogs/a
+
+
+
+
+
 //INFO DOGS
-###OBTENER X PERRITO
+###OBTENER X GUIA DE PERRITO
 GET http://localhost:3000/infodogs/Husky
 
-###todas las razas disponibles
+###OBTENER TODAS LAS GUIAS DE LOS PERRITOS
 GET http://localhost:3000/infodogs

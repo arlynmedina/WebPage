@@ -18,21 +18,21 @@ router.get('/infodogs',async(req,res)=>{
 });
 
 //rutas de usuarios
-router.get('/infodogs/:nombre',async(req,res)=>{
+router.get('/infodogs/:raza',async(req,res)=>{
     try{
         // Obtener el nombre del parámetro en la URL
         const razaPerro = req.params.raza;
 
         // Buscar el usuario en la base de datos por el nombre
-        const usuario = await InfoDog.findOne({ nombre: razaPerro });
+        const guia = await InfoDog.findOne({ raza: razaPerro });
 
         // Verificar si se encontró el usuario
-        if (!usuario) {
-            return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+        if (!guia) {
+            return res.status(404).json({ mensaje: 'Guia de cuidado no encontrada' });
         }
 
         // Devolver el usuario encontrado como respuesta
-        res.status(200).json(usuario);
+        res.status(200).json(guia);
 
     }catch(error){
         res.status(500).send("No se pudo obtener la informacion del perro "+ error.message);
