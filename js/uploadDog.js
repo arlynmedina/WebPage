@@ -1,6 +1,6 @@
 const submitButton = document.getElementById('submit-dog');
 const ratingDiv = document.getElementById('energia');
-const radioButtons = ratingDiv.querySelectorAll('input[type="rating"]');
+const radioButtons = ratingDiv.querySelectorAll('input[type="radio"]');
 let selectedValue = null;
 let valoresHistorial = [];
 let valoresProblemas = [];
@@ -28,20 +28,7 @@ submitButton.addEventListener('click', () => {
     const telefono = document.getElementById('telefono').value;
     const correo = document.getElementById('correo').value;
 
-    console.log(nombreP)
-    console.log(edadP)
-    console.log(razaP)
-    console.log(colorP)
-    console.log(energiaP)
-    console.log(historialP)
-    console.log(problemasP)
-    console.log(medicamentosP)
-    console.log(descripcionP)
-    console.log(imagenP)
-    console.log(direccion)
-    console.log(telefono)
-    console.log(correo)
-    /*
+    
     const dogJSON = {
         nombre: nombreP,
         edad: edadP,
@@ -59,9 +46,9 @@ submitButton.addEventListener('click', () => {
     };
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT','http://localhost:3000/dogs');
-    xhr.send(dogJSON);
-    */
+    xhr.open('POST','http://localhost:3000/dogs');
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify(dogJSON));
 })
 
 function agregarInput() {
