@@ -1,4 +1,4 @@
-const dropdownItems = document.querySelectorAll('.dropdown-item');
+const dropdownItems = document.querySelectorAll('.perros');
 
 dropdownItems.forEach(item => {
     item.addEventListener('click', function(event) {
@@ -7,13 +7,13 @@ dropdownItems.forEach(item => {
         // Obtiene el valor seleccionado
         const selectedValue = item.getAttribute('data-value');
 
-                // Guarda el valor seleccionado en el almacenamiento local
+        // Guarda el valor seleccionado en el almacenamiento local
         sessionStorage.setItem('selectedValue', selectedValue);
 
-                // Redirige a la otra página
         window.location.href = 'dogBreedInfo.html';
     });
 });
+
 
 const portfolioItem = document.getElementById('dog-description');
 
@@ -31,5 +31,3 @@ if (portfolioItem) {
         window.location.href = 'dogDescription.html';
     });
 }
-
-

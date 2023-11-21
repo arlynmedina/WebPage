@@ -20,6 +20,7 @@ app.use(require("./routes/dogs"));
 app.use(require("./routes/users"));
 app.use(require("./routes/info"));
 app.use(require("./routes/archivos"));
+app.use(require("./routes/admin"));
 
 //inicializar
 app.listen(3000,()=>{

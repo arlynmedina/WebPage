@@ -15,38 +15,38 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/WebPage/css/styles.css" rel="stylesheet" />
-    <script src = "js/uploadDog.js"></script>
+
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="/WebPage/views/index.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="dogBreedInfo.html">Beagle</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Husky</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Chihuahua</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Shihtzu</a>
-                        </div>
-                    <li class="nav-item"><a class="nav-link" href="/WebPage/views/uploadDog.html">Adopción</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="certifiedUser.html">Verificarse</a>
-                            <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
-                </ul>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/WebPage/views/loginIn.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
+                            <div id = "selectValue" class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item perros" href="#" data-value="Beagle">Beagle</a>
+                                <a class="dropdown-item perros" href="#" data-value="Husky">Husky</a>
+                                <a class="dropdown-item perros" href="#" data-value="Chihuahua">Chihuahua</a>
+                                <a class="dropdown-item perros" href="#" data-value="Shih tzu">Shihtzu</a>
+                            </div>
+                        <li class="nav-item"><a class="nav-link" onclick="checkVerificacion()">Adopción</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" onclick="verificarse()">Verificarse</a>
+                                <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <header>
         <img src="/WebPage/assets/img/dogs/uploadDog.jpg" style="height: 450px; object-fit: cover; object-position: center bottom; " alt="...">
@@ -55,115 +55,115 @@
         </div>
     </header>
 
-  <main>
-      <div class="container" style ="margin-top:-80px">
-            <!-- Portfolio Grid-->
-        <section class="page-section" id="portfolio">
-          
-          <p class = "d-inline bold-text">¿Desea dar en adopción a otro perro? </p>
-          <a href="/WebPage/views/uploadDog.html">
-            <button class="d-inline button-inputs" style="margin-left: 10px; height:40px; width:100px; background-color: #f4bf6c; color: white;">
-              Agregar
-            </button>
-          </a>
-          <br> <br> 
-              <div class="row">
-                <h3 class="text-primary bold-text text-center">Ha dado en adopción a los siguientes perros</h3>
-                <br><br>
-                  <div class="col-lg-4 col-sm-6 mb-4">
-                      <!-- Portfolio item 2-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://images.unsplash.com/photo-1507660392550-9aff6e04c7e5?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..."/>
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Luna</div>
-                              <div class="portfolio-caption-subheading text-muted">Labrador</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6 mb-4">
-                      <!-- Portfolio item 1-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://www.blogdelfotografo.com/wp-content/uploads/2020/06/oscar-sutton-yihlaRCCvd4-unsplash-1462x2190.webp" alt="..." />
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Max</div>
-                              <div class="portfolio-caption-subheading text-muted">Retriever de Nueva Escocia</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6 mb-4">
-                      <!-- Portfolio item 3-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://images.unsplash.com/photo-1518378188025-22bd89516ee2?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Buddy</div>
-                              <div class="portfolio-caption-subheading text-muted">Cavoodle</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                      <!-- Portfolio item 4-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Charlie</div>
-                              <div class="portfolio-caption-subheading text-muted">Golden Retriever</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                      <!-- Portfolio item 5-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://images.unsplash.com/photo-1554235386-82e08c80c3ef?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Missy</div>
-                              <div class="portfolio-caption-subheading text-muted">Border Collie</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-6">
-                      <!-- Portfolio item 6-->
-                      <div class="portfolio-item">
-                          <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                              <div class="portfolio-hover">
-                                  <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                              </div>
-                              <img class="img-fluid" src="https://images.unsplash.com/photo-1580905767068-18809fd88640?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                          </a>
-                          <div class="portfolio-caption">
-                              <div class="portfolio-caption-heading">Coco</div>
-                              <div class="portfolio-caption-subheading text-muted">Cocker Spaniel</div>
-                          </div>
-                      </div>
-                  </div>
-          </div>
-        </div>
+<main>
+    <div class="container" style ="margin-top:-80px">
+        <!-- Portfolio Grid-->
+    <section class="page-section" id="portfolio">
         
+        <p class = "d-inline bold-text">¿Desea dar en adopción a otro perro? </p>
+        <a href="/WebPage/views/uploadDog.html">
+        <button class="d-inline button-inputs" style="margin-left: 10px; height:40px; width:100px; background-color: #f4bf6c; color: white;">
+            Agregar
+        </button>
+        </a>
+        <br> <br> 
+            <div class="row">
+            <h3 class="text-primary bold-text text-center">Ha dado en adopción a los siguientes perros</h3>
+            <br><br>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 2-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1507660392550-9aff6e04c7e5?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..."/>
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Luna</div>
+                            <div class="portfolio-caption-subheading text-muted">Labrador</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://www.blogdelfotografo.com/wp-content/uploads/2020/06/oscar-sutton-yihlaRCCvd4-unsplash-1462x2190.webp" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Max</div>
+                            <div class="portfolio-caption-subheading text-muted">Retriever de Nueva Escocia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 3-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1518378188025-22bd89516ee2?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Buddy</div>
+                            <div class="portfolio-caption-subheading text-muted">Cavoodle</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <!-- Portfolio item 4-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Charlie</div>
+                            <div class="portfolio-caption-subheading text-muted">Golden Retriever</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <!-- Portfolio item 5-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="../WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1554235386-82e08c80c3ef?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Missy</div>
+                            <div class="portfolio-caption-subheading text-muted">Border Collie</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Portfolio item 6-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1580905767068-18809fd88640?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Coco</div>
+                            <div class="portfolio-caption-subheading text-muted">Cocker Spaniel</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
     
+
 
 </main>
 
@@ -181,6 +181,7 @@
     </script>
     
     <script src="/WebPage/js/scripts.js"></script>
+    <script src="userAdoptions.js"></script>
 </body>
 
 </html>

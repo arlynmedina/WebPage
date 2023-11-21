@@ -1,6 +1,26 @@
 ###OBTENER LOS USUARIOS
 GET http://localhost:3000/users
 
+
+###OBTENER UN USUARIO POR SU CORREO
+GET http://localhost:3000/users/ducho@gmail.com.mx
+
+###OBTENER UN USUARIO Y SU CONTRA
+GET http://localhost:3000/users/ducho@gmail.com.mx/12345
+
+###ACTUALIZAMOS UN USUARIO CON UNA NUEVA LISTA
+PUT http://localhost:3000/users/updateList/ducho@gmail.com.mx
+Content-Type: application/json
+
+{
+    "nombre": "pene",
+    "apellidos":"vidrio",
+    "correo": "ducho@gmail.com.mx",
+    "contra": "12345",
+    "perrosDadosEnAdopcion": ["luna"],
+    "verificado":true
+}
+
 ###postear un usuario
 POST http://localhost:3000/users
 Content-Type: application/json
@@ -10,7 +30,8 @@ Content-Type: application/json
     "apellidos":"vidrio",
     "correo": "ducho@gmail.com.mx",
     "contra": "12345",
-    "perrosEnAdopcion": []
+    "perrosEnAdopcion": [],
+    "verificado":false
 }
 
 ###posteamos a ailin tilin
@@ -35,9 +56,22 @@ Content-Type: application/json
     "apellidos":"isaac",
     "correo": "ximenaisacc@gmail.com.mx",
     "contra": "password",
-    "perrosEnAdopcion": []
+    "perrosEnAdopcion": [],
+    "verificado":false
 }
 
+###ACTUALIZAR UN USUARIO EXISTENTE
+PUT http://localhost:3000/users/ducho@gmail.com.mx
+Content-Type: application/json
+
+{
+    "nombre": "ducho",
+    "apellidos":"vidrio",
+    "correo": "ducho@gmail.com.mx",
+    "contra": "12345",
+    "perrosEnAdopcion": [],
+    "verificado":true
+}
 
 
 /////PERRITOS
@@ -45,9 +79,10 @@ Content-Type: application/json
 GET http://localhost:3000/dogs
 
 ###OBTENER X PERRO
-GET http://localhost:3000/dogs/a
+GET http://localhost:3000/dogs/Luna
 
-
+###POSTEAMOS A UN PERRITO
+POST 
 
 
 
@@ -57,3 +92,23 @@ GET http://localhost:3000/infodogs/Husky
 
 ###OBTENER TODAS LAS GUIAS DE LOS PERRITOS
 GET http://localhost:3000/infodogs
+
+///RUTAS DE ADMINS
+###OBTENER TODOS LOS ADMINS
+GET http://localhost:3000/admins
+
+###OBTENER UN ADMIN CON SU ID
+GET http://localhost:3000/admins/655c2aa4c12c2ed93bae32df
+
+###POSTEAR EN LA DB UN ADMIN NUEVO
+POST http://localhost:3000/admins
+Content-Type: application/json
+
+{
+    "nombre": "Nombre del usuario",
+    "ocupacion": "Ocupación del usuario",
+    "domicilio": "Domicilio del usuario",
+    "telefono": "Número de teléfono del usuario",
+    "edad": 25,
+    "fechaDeNacimiento": "1998-01-15" 
+}

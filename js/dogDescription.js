@@ -13,7 +13,7 @@ function star(rating){
 }
 
 function showDogDescription(selectedValue) {
-    console.log(selectedValue);
+    console.log("SELECTED VALUE "+selectedValue);
     let xhr = new XMLHttpRequest();
 
     xhr.open('GET', 'http://localhost:3000/dogs/' + selectedValue);
@@ -69,9 +69,7 @@ function showDogDescription(selectedValue) {
             <p class = "normal-text">${info.descripcion}</p>
         </div>
     </div>`;
-    
 
-       
         dogDesc.innerHTML = item;
         star(info.energia);
     

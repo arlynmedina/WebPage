@@ -37,7 +37,7 @@
             </div>
         </nav>
 
-        <!-- Modal Body -->
+        <!-- Modal inicio sesion -->
         <div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
@@ -50,7 +50,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Correo eletronico</label>
                             <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
+                                <input type="email" placeholder="Ingresa tu correo" class="circular-border" id="input-correo-iniciar-sesion">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border" id="contra-iniciar-sesion">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Nombre</label>
                             <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tu nombre" class="circular-border">
+                                <input type="text" placeholder="Ingresa tu nombre" class="circular-border" required id="nombreRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Apellidos</label>
                             <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tus apellidos" class="circular-border">
+                                <input type="text" placeholder="Ingresa tus apellidos" class="circular-border" required id="apellidosRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Correo Electrónico</label>
                             <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
+                                <input type="email" placeholder="Ingresa tu correo" class="circular-border" required id="correoRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -111,13 +111,13 @@
                             <form action="" class="mb-3"></form>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border" required id="contraRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
                         <!-- Boton iniciar sesion -->
                         <div>
-                            <button type="button" class="btn btn-primary">Registrarse</button>
+                            <button type="button" class="btn btn-primary" onclick="darDeAltaUsuario()">Registrarse</button>
                         </div>
                     </div>
                 </div>
