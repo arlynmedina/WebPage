@@ -153,7 +153,9 @@ function checkVerificacion(){
     xhr.open("GET","http://localhost:3000/users/"+correoUsuario);
     xhr.send();
     xhr.onload = () => {
+        
         let usuario = JSON.parse(xhr.response);
+        console.log(usuario.verificado)
         if(usuario.verificado === false){
             alert("Necesitas verificarte para poner en adopción a un perro");
             return false;
@@ -173,6 +175,7 @@ function _checkVerification(){
     xhr.send();
     xhr.onload = () => {
         let usuario = JSON.parse(xhr.response);
+        console.log(usuario.verificado)
         if(usuario.verificado === false){
             return false;
         }else{

@@ -6,9 +6,14 @@ function showUserDogs() {
     xhr.send();
     let item = '';
     let UserDog = document.getElementById('UserDog');
+    console.log('ahhh')
     xhr.onload = function () {
         let info = JSON.parse(xhr.response);
-        for (dog in info.perrosDadosEnAdopcion) {
+        console.log(info.perrosDadosEnAdopcion)
+        for (let dogs of info.perrosDadosEnAdopcion) {
+            console.log('Ahhhh')
+            console.log(dogs)
+            dog = JSON.parse(dogs)
             item += `<div class="col-lg-4 col-sm-6 mb-4">
                 <div id = "dog-description" class="portfolio-item">
                     <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
@@ -29,3 +34,5 @@ function showUserDogs() {
         UserDog.innerHTML = item;
     }
 }
+
+showUserDogs()

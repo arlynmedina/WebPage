@@ -197,6 +197,4 @@ function guardarImagen() {
         } else {
             console.error('No se ha seleccionado ningún archivo.');
         }
-        
-        window.location.href = "userAdoptions.html";
 }

@@ -1,5 +1,5 @@
 ###OBTENER LOS USUARIOS
-GET http://localhost:3000/users/localhost:3000/users/a@gmail.com/2b$10$KH0IiGkQpYet4KoS.jBb1uUSDiltjCtiGr.PJluQ186QM5HtLN8f2
+GET http://localhost:3000/dogs/
 
 ###postear un usuario
 POST http://localhost:3000/users
