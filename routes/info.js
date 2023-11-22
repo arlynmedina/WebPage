@@ -39,6 +39,4 @@ router.get('/infodogs/:raza',async(req,res)=>{
     }
 });
 
-
 module.exports = router;
-

@@ -8,21 +8,20 @@ function star(rating){
 
     // Colorear las primeras "ratingValue" estrellas
     for (var i = 0; i < ratingValue; i++) {
-        stars[i].style.backgroundColor = '#ffd700'; // Color amarillo o el color deseado
+        stars[i].style.backgroundColor = '#ffd700';
     }
 }
 
 function showDogDescription(selectedValue) {
     console.log(selectedValue);
     let xhr = new XMLHttpRequest();
-
     xhr.open('GET', 'http://localhost:3000/dogs/' + selectedValue);
     xhr.send();
     let item = '';
     let dogDesc = document.getElementById('dogDesc');
     xhr.onload = function () {
         let info = JSON.parse(xhr.response);
-        // Continue with the rest of your code...
+        console.log(info)
         item += `<div class="row">
         <div class="col-lg-5 pb-4 pb-lg-0">
             <br>
@@ -69,12 +68,9 @@ function showDogDescription(selectedValue) {
             <p class = "normal-text">${info.descripcion}</p>
         </div>
     </div>`;
-    
 
-       
         dogDesc.innerHTML = item;
         star(info.energia);
-    
     }
 }
 

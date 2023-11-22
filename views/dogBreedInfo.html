@@ -22,7 +22,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="/WebPage/views/index.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
+            <a class="navbar-brand" href="/WebPage/views/loginIn.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="..."/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -30,124 +30,40 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="dogBreedInfo.html">Beagle</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Husky</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Chihuahua</a>
-                            <a class="dropdown-item" href="dogBreedInfo.html">Shihtzu</a>
-                        </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuidados</a>
+                            <div id = "selectValue" class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item perros" href="#" data-value="Husky">Husky</a>
+                                <a class="dropdown-item perros" href="#" data-value="Labrador">Labrador</a>
+                                <a class="dropdown-item perros" href="#" data-value="Golden Retriever">Golden Retriever</a>
+                                <a class="dropdown-item perros" href="#" data-value="Shih Tzu">Shih Tzu</a>
+                                <a class="dropdown-item perros" href="#" data-value="Border Collie">Border Collie</a>
+                                <a class="dropdown-item perros" href="#" data-value="Caniche Toy">Caniche Toy</a>
+                                <a class="dropdown-item perros" href="#" data-value="Chow Chow">Chow Chow</a>
+                                <a class="dropdown-item perros" href="#" data-value="Beagle">Beagle</a>
+                            </div>
                     <li class="nav-item"><a class="nav-link" href="/WebPage/views/userAdoptions.html">Adopción</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="certifiedUser.html">Verificarse</a>
-                            <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" onclick="verificarse()">Verificarse</a>
+                                    <a class="dropdown-item" onclick="cerrarSesion()">Cerrar Sesión</a>
                 </ul>
             </div>
         </div>
     </nav>
 
-<!-- Modal Body -->
-<div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Iniciar Sesión</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="correo" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Correo eletronico</label>
-                    <div class="input-group mb-3">
-                        <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <div id="contra" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Contraseña</label>
-                    <div class="input-group mb-3">
-                        <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <!--Boton iniciar sesion-->
-                <div>
-                    <button type="button" class="btn btn-primary">Iniciar sesión</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <span>¿No tienes cuenta?<a data-bs-target="#registroModal" data-bs-toggle="modal" href="">¡Registrate!</a></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal registro -->
-<div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Registrarse</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="nombre" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Nombre</label>
-                    <div class="input-group mb-3">
-                        <input type="text" placeholder="Ingresa tu nombre" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <div id="apellidos" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Apellidos</label>
-                    <div class="input-group mb-3">
-                        <input type="text" placeholder="Ingresa tus apellidos" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <div id="correo" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Correo Electrónico</label>
-                    <div class="input-group mb-3">
-                        <input type="email" placeholder="Ingresa tu correo" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <div id="contra" class="modalSesion">
-                    <form action="" class="mb-3"></form>
-                    <label>Contraseña</label>
-                    <div class="input-group mb-3">
-                        <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
-                        <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
-                    </div>
-                </div>
-                <!-- Boton iniciar sesion -->
-                <div>
-                    <button type="button" class="btn btn-primary">Registrarse</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
     <header>
         <img src="/WebPage/assets/img/dogs/dogBreedInfo.jpg" style="height: 450px; object-fit: cover; object-position: center; " alt="...">
         <div class="header-text-container">
-            <div class="masterhead-subheading" >Descubre el amor y los cuidados específicos que el Husky necesita para una vida feliz y saludable</div>
+            <div id = 'dogInfoName'></div>
         </div>
       </header>
       <style>
-        /* Center the image */
         .center-image {
           display: flex;
           justify-content: center;
           align-items: center;
-          /* Set height to the viewport height for vertical centering */
         }
       </style>
 
@@ -156,64 +72,6 @@
     <section class="page-section" id="about">
         <div class="container">
             <div id = 'dogInfo'> </div>
-            <!--
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Información General</h2>
-                <h3 class="section-subheading text-muted">Familiarízate con toda la información necesaria antes de decidir adoptar un Husky.</h3>
-            </div>
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/Husky.jpg" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="bold-text">Personalidad</h4>
-                        </div>
-                        <div class="normal-text"><p class="text-muted">Esta raza es muy conocida por su buen carácter y por ser muy cariñosa con la gente, por lo que no son perros guardianes por naturaleza. Les encanta y necesitan estar acompañados y no deberán quedarse solos durante mucho tiempo, ya que pueden volverse muy destructivos. Les gusta estar con otros perros bien adiestrados, aunque son cazadores ágiles y eficientes, por lo que deberán adiestrarse con cuidado para que puedan estar en contacto con otros animales domésticos. Aunque no suelen ladrar, sí que aúllan, a veces solo por el simple placer de hacerlo.
-
-                        </p></div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/health.jpg" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="bold-text">Salud</h4>
-                        </div>
-                        <div class="normal-text"><p class="text-muted">La del husky siberiano suele ser una raza sana y resistente. Sin embargo, al igual que muchas otras razas, puede sufrir trastornos oculares hereditarios y, en ocasiones, displasia de cadera (una enfermedad que puede provocar problemas de movilidad). Por tanto, es importante un examen de la cadera y de los ojos antes de dedicar al perro a la crianza.</p></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/husky2.jpg" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="bold-text">Ejercicio</h4>
-                        </div>
-                        <div class="normal-text"><p class="text-muted">Esta raza necesita hacer mucho ejercicio, aunque deberá hacerlo en una zona segura y acotada, o con correa, ya que tienen muchas ganas de correr si se les deja sueltos y no suelen responder a la llamada de su dueño para volver. Es fundamental disponer de un jardín vallado y, como pueden saltar sin coger carrerilla, la altura también es un factor importante. Un husky siberiano adulto necesita más de dos horas de ejercicio diario.</p></div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/WebPage/assets/img/about/food.png" alt="..." /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="bold-text">Nutrición</h4>
-                        </div>
-                        <div class="normal-text"><p class="text-muted">La dieta de tu perro debe contener la proporción adecuada de todos los principales grupos de nutrientes. Además, deberá tener siempre agua fresca a su disposición. Es importante realizar comprobaciones regulares para mantener al perro en perfecta forma y recuerda darle de comer dos veces al día siguiendo las pautas de alimentación de su alimento específico.</p></div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image">
-                        <h4>
-                            ¡Se Parte
-                            <br />
-                            De Su
-                            <br />
-                            Historia!
-                        </h4>
-                    </div>
-                </li>
-            </ul>
-        -->
-            
         </div>
     </section>
     

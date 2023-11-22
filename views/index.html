@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/WebPage/views/index.html"><img width="150" height="200" src="/WebPage/assets/img/HappyPaws.svg" alt="logo"/></a>
+                <a class="navbar-brand" href="/WebPage/views/index.html"><img width="150" height="200" src="..\assets\img\HappyPaws.svg" alt="logo"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -37,7 +37,7 @@
             </div>
         </nav>
 
-        <!-- Modal Body -->
+        <!-- Modal inicio sesion -->
         <div class="modal fade" id="iniciarSesionModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
@@ -50,7 +50,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Correo eletronico</label>
                             <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
+                                <input type="email" placeholder="Ingresa tu correo" class="circular-border" id="input-correo-iniciar-sesion">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border" id="contra-iniciar-sesion">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Modal registro -->
-        <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -87,7 +87,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Nombre</label>
                             <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tu nombre" class="circular-border">
+                                <input type="text" placeholder="Ingresa tu nombre" class="circular-border" required id="nombreRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Apellidos</label>
                             <div class="input-group mb-3">
-                                <input type="text" placeholder="Ingresa tus apellidos" class="circular-border">
+                                <input type="text" placeholder="Ingresa tus apellidos" class="circular-border" required id="apellidosRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             <form action="" class="mb-3"></form>
                             <label>Correo Electrónico</label>
                             <div class="input-group mb-3">
-                                <input type="email" placeholder="Ingresa tu correo" class="circular-border">
+                                <input type="email" placeholder="Ingresa tu correo" class="circular-border" required id="correoRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
@@ -111,18 +111,19 @@
                             <form action="" class="mb-3"></form>
                             <label>Contraseña</label>
                             <div class="input-group mb-3">
-                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border">
+                                <input type="password" placeholder="Ingresa tu contraseña" class="circular-border" required id="contraRegistro">
                                 <span class="input-group-text"><i class="fa-solid fa-user" style="color: #8a919e;"></i></span>
                             </div>
                         </div>
                         <!-- Boton iniciar sesion -->
                         <div>
-                            <button type="button" class="btn btn-primary">Registrarse</button>
+                            <button type="button" class="btn btn-primary" onclick="darDeAltaUsuario()" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#iniciarSesionModal">Registrarse</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Masthead-->
         <header class="masthead">
@@ -178,122 +179,33 @@
                 </div>
                 <div>
                     <h4 class="my-3">Filtra por: </h4>
-                    <p class="d-inline bold-text" style = "font-size: 21px;">Tamaño </p>
-                    <select id="opciones" name="opciones" class = "normal-text" style=" margin: 1px; width:150px">
-                        <option value="opcion1"> Ninguno</option>
-                        <option value="opcion1"> Chico</option>
-                        <option value="opcion2"> Mediano </option>
-                        <option value="opcion3"> Grande</option>
-                    <!-- Agrega más opciones según sea necesario -->
-                    </select>
-                    <p class="d-inline bold-text" style = "font-size: 21px; margin-left:5%">Raza </p>
-                    <select id="opciones" name="opciones" class = "normal-text" style=" margin: 1px; width:150px">
-                        <option value="opcion1"> Ninguno</option>
-                        <option value="opcion1"> Husky</option>
-                        <option value="opcion2"> Collie </option>
-                        <option value="opcion3"> Golden Retriever</option>
-                        <option value="opcion4"> Bulldog</option>
-                        <option value="opcion5"> Beagle</option>
-                        <option value="opcion6"> Shih Tzu</option>
-                    <!-- Agrega más opciones según sea necesario -->
+                    <p class="d-inline bold-text" style = "font-size: 21px; margin-left:5%; margin-top: -100px">Raza </p>
+                    <select id = "filtro" name="opciones" class = "normal-text" style=" margin: 1px; width:150px">
+                        <option  value="Ninguno"> Ninguno</option>
+                        <option  value="Husky"> Husky</option>
+                        <option  value="Border Collie"> Border Collie </option>
+                        <option value="Golden Retriever"> Golden Retriever</option>
+                        <option value="Bulldog"> Bulldog</option>
+                        <option  value="Beagle"> Beagle</option>
+                        <option  value="Shih Tzu"> Shih Tzu</option>
                     </select>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://images.unsplash.com/photo-1507660392550-9aff6e04c7e5?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..."/>
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Luna</div>
-                                <div class="portfolio-caption-subheading text-muted">Labrador</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://www.blogdelfotografo.com/wp-content/uploads/2020/06/oscar-sutton-yihlaRCCvd4-unsplash-1462x2190.webp" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Max</div>
-                                <div class="portfolio-caption-subheading text-muted">Retriever de Nueva Escocia</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://images.unsplash.com/photo-1518378188025-22bd89516ee2?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Buddy</div>
-                                <div class="portfolio-caption-subheading text-muted">Cavoodle</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Charlie</div>
-                                <div class="portfolio-caption-subheading text-muted">Golden Retriever</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://images.unsplash.com/photo-1554235386-82e08c80c3ef?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Missy</div>
-                                <div class="portfolio-caption-subheading text-muted">Border Collie</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <!-- Portfolio item 6-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="https://images.unsplash.com/photo-1580905767068-18809fd88640?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Coco</div>
-                                <div class="portfolio-caption-subheading text-muted">Cocker Spaniel</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="dogInfoIndex"> </div>
                 </div>
             </div>
 
+
+            <ul id="pagination" class="pagination">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+
+            
         </section>
+        
         <!-- About-->
         <section class="page-section" id="about">
             <div class="container">
@@ -452,5 +364,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/WebPage/js/scripts.js"></script>
+        <script src="/WebPage/js/loginIn.js"></script>
     </body>
 </html>

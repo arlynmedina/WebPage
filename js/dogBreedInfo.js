@@ -12,7 +12,7 @@ function showDogInfo(selectedValue){
         console.log(info.personalidad);
         item += `<div class="text-center">
         <h2 class="section-heading text-uppercase">Información General</h2>
-        <h3 class="section-subheading text-muted">Familiarízate con toda la información necesaria antes de decidir adoptar un Husky.</h3>
+        <h3 class="section-subheading text-muted">Familiarízate con toda la información necesaria antes de decidir adoptar un ${info.raza}.</h3>
     </div>
     <ul class="timeline">
         <li>
@@ -68,4 +68,22 @@ function showDogInfo(selectedValue){
     dogInfo.innerHTML = item;
     }
 }
+
+function showDogName(selectedValue){
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET','http://localhost:3000/infodogs/' + selectedValue);
+    xhr.send();
+    let item = '';
+    let dogInfoName = document.getElementById('dogInfoName');
+    console.log(dogInfo);
+    xhr.onload = function(){
+        let info = JSON.parse(xhr.response);
+        item += `<div class="masterhead-subheading" >Descubre el amor y los cuidados específicos que el ${info.raza} necesita para una vida feliz y saludable</div>`
+        dogInfoName.innerHTML = item;
+    }
+
+}
+
+
+showDogName(selectedValue)
 showDogInfo(selectedValue);
