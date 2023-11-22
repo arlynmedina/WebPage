@@ -26,8 +26,10 @@ const userShema = new Schema({
         type:[String],
         required: true
     },
-    verificado:
-    false
+    verificado:{
+        type:Boolean,
+        required:true
+    }
 });
 
 //encriptamos la contra
@@ -40,7 +42,7 @@ userShema.methods.encriptarContra = (contra)=>{
 userShema.methods.compararContra = function(contra){
     //comparamos si la contra que nos pasan es la misma
     //retornamos true o false
-    return bcrypt.compareSync(contra,this,contra);
+    return bcrypt.compareSync(contra,this.contra);
 }
 
 //crear modelo de los usuarios
