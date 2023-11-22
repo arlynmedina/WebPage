@@ -43,54 +43,72 @@ function moverPerro(){
         telefono: telefono,
         correo: correo
     };
-    //obtenemos el string de los valores
-    let perroString = JSON.stringify(dogJSON);
-    
-    // Obtenemos el correo del usuario que inició sesión
-    let correoUsuario = sessionStorage.getItem("correoUsuario");
-    
-    // Creamos el nuevo esquema de usuario
-    let xhr2 = new XMLHttpRequest();
-    xhr2.open("GET", "http://localhost:3000/users/" + correoUsuario);
-    xhr2.send();
-    xhr2.onload = () => {
-    let usuarioViejo = JSON.parse(xhr2.response);
-    
-    // Obtenemos la lista vieja y le damos push
-    let listaVieja = usuarioViejo.perrosDadosEnAdopcion || [];
-    listaVieja.push(perroString);
-    sessionStorage.setItem("LISTAFINAL",listaVieja);
-    console.log(sessionStorage);
-
-    let usuarioNuevo = {
-        nombre: usuarioViejo.nombre,
-        apellidos: usuarioViejo.apellidos,
-        correo: usuarioViejo.correo,
-        contra: usuarioViejo.contra,
-        perrosDadosEnAdopcion: listaVieja,
-        verificado: usuarioViejo.verificado
-    };
-    
-    // Creamos la llamada para actualizar al usuario con su nuevo perro
-    let xhr3 = new XMLHttpRequest();
-    xhr3.open("PUT", "http://localhost:3000/users/updateList/" + correoUsuario);
-    xhr3.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr3.send(JSON.stringify(usuarioNuevo));
-    xhr3.onload = () => {
-        console.log("Usuario actualizado con el nuevo perro");
-    
-        // Subimos el perro a la base de datos
+    let urlReal = "";
+    ///guardamos la imagen en el server y guardamos la url real
+    guardarImagenEnServer().then((url)=>{
+        console.log("URL DISQUE FINAL"+url);
+        urlReal=url;
+        for(let i=0;i<100000;i+=1){
+            console.log(i);
+        }
+    }).catch((error)=>{
+        console.log("Error");
+    });
+/*
+    let urlFinal =  
+    ///entonces postearemos al perro con la url real
+    xhr.onload = ()=>{
+        const urlReal = JSON.parse(xhr.response);
+        //cambiamos la url con la buena
+        dogJSON.imagen = urlReal;
+            // Subimos el perro a la base de datos
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost:3000/dogs');
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send(JSON.stringify(dogJSON));
-        console.log("Gracias por salvar una vida");
-    };
-    };
-    //guardamos la imagen
-    guardarImagen();
-};
-
+        xhr.onload=()=>{
+            if(xhr.status==400){
+                alert("Error, verifica que hayas llenado todos los campos");
+            };
+        };
+    };/*
+        ///si todo va bien en este punto ahora tendremos que actualizar la lista del usuario ya existente en la base de datos
+        // Creamos el nuevo esquema de usuario
+        let xhr2 = new XMLHttpRequest();
+        xhr2.open("GET", "http://localhost:3000/users/" + correoUsuario);
+        xhr2.send();
+        xhr2.onload = () => {
+            let usuarioViejo = JSON.parse(xhr2.response);
+            
+            // Obtenemos la lista vieja y le damos push
+            let listaVieja = usuarioViejo.perrosDadosEnAdopcion || [];
+            listaVieja.push(perroString);
+            sessionStorage.setItem("LISTAFINAL",listaVieja);
+            console.log(sessionStorage);
+            let usuarioNuevo = {
+                nombre: usuarioViejo.nombre,
+                apellidos: usuarioViejo.apellidos,
+                correo: usuarioViejo.correo,
+                contra: usuarioViejo.contra,
+                perrosDadosEnAdopcion: listaVieja,
+                verificado: usuarioViejo.verificado
+            };
+                        
+            // Creamos la llamada para actualizar al usuario con su nuevo perro
+            let xhr3 = new XMLHttpRequest();
+            xhr3.open("PUT", "http://localhost:3000/users/updateList/" + correoUsuario);
+            xhr3.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr3.send(JSON.stringify(usuarioNuevo));
+            xhr3.onload = () => {
+                console.log("Usuario actualizado con el nuevo perro");
+            };
+        };
+    alert("Gracias por salvar una vida!");
+    }else{
+        alert("Error, Asegura de llenar todos los campos");
+    }
+    */
+}
 
 function agregarInput() {
     // Crear un nuevo input
@@ -181,23 +199,31 @@ function agregarValor2(inputValue) {
     }
 }
 
-function guardarImagen() {
+function guardarImagenEnServer() {
+    let url = ""
         let inputDeImagen = document.getElementById('fileInput');
     
         if (inputDeImagen.files.length > 0) {
             let archivoSeleccionado = inputDeImagen.files[0];
-    
             var formData = new FormData();
             formData.append('archivo', archivoSeleccionado);
-            console.log("tipo:"+typeof(formData));
-            console.log("contenido:"+formData);
-            // realizamos la solicitud de guardar nuestro documentos
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:3000/upload');
-            xhr.send(formData);
+
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:3000/upload');
+                xhr.onload = () => {
+                    url = xhr.responseText;
+                    resolve(url);
+                };
+                xhr.onerror = () => {
+                    reject('Error en la solicitud');
+                };
+                xhr.send(formData);
+            });
         } else {
             console.error('No se ha seleccionado ningún archivo.');
         }
+        return url;
         
         ///window.location.href = "userAdoptions.html";
 }

@@ -1,6 +1,7 @@
 const {Router} = require('express');
 const multer = require('multer');
 const router = Router();
+const path = require('path');
 
 const storage = multer.diskStorage({
     destination: function(req,res,cb){
@@ -16,7 +17,10 @@ const upload = multer({storage:storage});
 
 //ruta para subir archivos
 router.post('/upload',upload.single('archivo'),(req,res)=>{
-    res.send("Archivo subido correctamente");
+    const originalname = req.file.originalname
+    const rutaFinal = path.join(__dirname,'..','assets','uploadedDogs',originalname);
+    //mandamos la ruta del archivo
+    res.send(rutaFinal);
 });
 
 module.exports = router;

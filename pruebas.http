@@ -39,14 +39,14 @@ Content-Type: application/json
 
 /////PERRITOS
 ###OBTENER LOS PERROS
-GET http://localhost:3000/dogs/Luna
+GET http://localhost:3000/dogs
 
 //INFO DOGS
 ###OBTENER X PERRITO
 GET http://localhost:3000/infodogs/Beagle
 
 ###ACTUALIZAR LA LISTA DE UN USUARIO
-PUT http://localhost:3000/users/updateList/a@gmail.com
+PUT http://localhost:3000/users/updateList/@gmail.com
 Content-Type: application/json
 
 {
