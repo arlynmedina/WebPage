@@ -110,6 +110,7 @@ router.put('/users/:correo', async (req, res) => {
 // Ruta para actualizar la lista del usuario
 router.put('/users/updateList/:correo', async (req, res) => {
     try {
+        console.log("NUEVA LISTA"+req.body.perrosDadosEnAdopcion);
         const correo = req.params.correo;
         const nuevaLista = req.body.perrosDadosEnAdopcion; // Suponiendo que la lista se envía en el cuerpo de la solicitud
 
@@ -123,7 +124,6 @@ router.put('/users/updateList/:correo', async (req, res) => {
         if (!usuarioActualizado) {
         return res.status(404).json({ mensaje: 'Usuario no encontrado' });
         }
-
         res.json(usuarioActualizado);
     } catch (error) {
         console.error(error);

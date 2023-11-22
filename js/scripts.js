@@ -56,7 +56,7 @@ function cambiarHome(){
     // Hacer una llamada al servidor para verificar si el usuario ya tiene una cuenta con nosotros
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/users/' + correoUsuario+"/"+contraUsuario);
-    console.log("URL DE LLAMDA: "+'http://localhost:3000/users/' + correoUsuario+"/"+contraUsuario);
+
     xhr.send();
 
     xhr.onload = function(){
@@ -107,7 +107,6 @@ function verificarse() {
         };
     }
 }
-
 
 function darDeAltaUsuario(){
     //obtenemos todos los valores de los inputs

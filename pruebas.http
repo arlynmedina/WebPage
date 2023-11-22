@@ -1,5 +1,5 @@
 ###OBTENER LOS USUARIOS
-GET http://localhost:3000/users/localhost:3000/users/a@gmail.com/2b$10$KH0IiGkQpYet4KoS.jBb1uUSDiltjCtiGr.PJluQ186QM5HtLN8f2
+GET http://localhost:3000/users
 
 ###postear un usuario
 POST http://localhost:3000/users
@@ -45,3 +45,14 @@ GET http://localhost:3000/dogs/Luna
 ###OBTENER X PERRITO
 GET http://localhost:3000/infodogs/Beagle
 
+###ACTUALIZAR LA LISTA DE UN USUARIO
+PUT http://localhost:3000/users/updateList/a@gmail.com
+Content-Type: application/json
+
+{
+    "nombre": "ducho",
+    "apellidos":"ducho",
+    "correo": "ducho@gmail.com.mx",
+    "contra": "password",
+    "perrosDadosEnAdopcion": ["luna"]
+}

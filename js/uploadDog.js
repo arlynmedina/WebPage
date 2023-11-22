@@ -189,7 +189,8 @@ function guardarImagen() {
     
             var formData = new FormData();
             formData.append('archivo', archivoSeleccionado);
-    
+            console.log("tipo:"+typeof(formData));
+            console.log("contenido:"+formData);
             // realizamos la solicitud de guardar nuestro documentos
             let xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost:3000/upload');
@@ -198,5 +199,5 @@ function guardarImagen() {
             console.error('No se ha seleccionado ningún archivo.');
         }
         
-        window.location.href = "userAdoptions.html";
+        ///window.location.href = "userAdoptions.html";
 }
