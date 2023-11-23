@@ -58,7 +58,6 @@ router.post('/dogs',async(req,res)=>{
         let perritoGuardado = await nuevoPerrito.save();
         res.status(200).json(perritoGuardado);
     }catch(error){
-        console.log("error de pene duro");
         res.status(400).send(error);
     }
 });
