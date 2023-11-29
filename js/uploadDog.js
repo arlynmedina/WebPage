@@ -44,20 +44,22 @@ function moverPerro(){
         correo: correo
     };
 
+    let urlReal;
+    let id;
     ///guardamos la imagen en el server y guardamos la url real
     guardarImagenEnServer().then((url)=>{
-        alert(`tipo de la url: ${url}`)
         dogJSON.imagen=url;
+        //guardamos la url real
+        urlReal = url;
         ///encadenamos la promesa para postear perros
-        return postearPerro(dogJSON);
-    }).then(()=>{
-        alert("POSTIE TU PERRO");
+        postearPerro(dogJSON);
+    }).then((perroId)=>{
+        alert("Perro subido a la base de datos correctamente");
     })
     .catch((error)=>{
-        alert("ERROR MI AMOR, ASEGURA DE LLENAR TODOS LOS DATOS... "+error);
-    });
+        alert("Error, asegurate de llenar todos los datos... "+error);
+    })
     };
-
 
 function agregarInput() {
     // Crear un nuevo input
@@ -175,56 +177,68 @@ function guardarImagenEnServer() {
         ///window.location.href = "userAdoptions.html";
 };
 
-function postearPerro(dogJSON){
-    ///entonces postearemos al perro con la url real
-    // Subimos el perro a la base de datos
-    return new Promise((resolve,reject)=>{
+function postearPerro(dogJSON) {
+    return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost:3000/dogs');
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
         xhr.send(JSON.stringify(dogJSON));
-        xhr.onload=()=>{
-        if(xhr.status==400){
-            reject();
-        }else{
-            resolve();
-        }
-    }
-    })
+
+        xhr.onload = () => {
+            if (xhr.status === 400) {
+                reject();
+            } else {
+                let perro = JSON.parse(xhr.responseText);
+                let perroId = perro._id;
+                sessionStorage.setItem("id",perroId);
+                actualizarLista();
+                //lo devolvemos pq si
+                resolve(perroId);
+            }
+        };
+    });
 }
 
-function actualizarLista(){
-    ///OBTENEMOS EL CORREO DEL USUARIO DESDE EL SESSION STORAGE
-    let correoUsuario = sessionStorage.getItem("correoUsuario");
-    return new Promise((resolve,reject)=>{
-        let xhr2 = new XMLHttpRequest();
-        xhr2.open("GET", "http://localhost:3000/users/" + correoUsuario);
-        xhr2.send();
-        xhr2.onload = () => {
-        let usuarioViejo = JSON.parse(xhr2.response);
-            
-        // Obtenemos la lista vieja y le damos push
-        let listaVieja = usuarioViejo.perrosDadosEnAdopcion || [];
-        listaVieja.push(perroString);
-        sessionStorage.setItem("LISTAFINAL",listaVieja);
-        console.log(sessionStorage);
+async function actualizarLista(){
+    return new Promise(()=>{
+        //actualizamos la lista del usuario
+        let lista = sessionStorage.getItem("ListaImagenesPerros");
+        let correo = sessionStorage.getItem("correoUsuario");
+        let id = sessionStorage.getItem("id");
 
-        let usuarioNuevo = {
-            nombre: usuarioViejo.nombre,
-            apellidos: usuarioViejo.apellidos,
-            correo: usuarioViejo.correo,
-            contra: usuarioViejo.contra,
-            perrosDadosEnAdopcion: listaVieja,
-            verificado: usuarioViejo.verificado
+        // Verifica si lista es null o no es una cadena JSON válida
+        let parsedLista = [];
+        if (lista) {
+            try {
+                parsedLista = JSON.parse(lista);
+                parsedLista.push(id);
+                
+                // Actualiza el valor en sessionStorage después de modificar el array
+                sessionStorage.setItem("ListaImagenesPerros", JSON.stringify(parsedLista));
+            } catch (error) {
+                console.error("Error al parsear lista como JSON: " + error);
+            }
+        }
+
+        // Creamos el JSON que mandaremos
+        let json = {
+            perrosDadosEnAdopcion: parsedLista
         };
-        // Creamos la llamada para actualizar al usuario con su nuevo perro
-        let xhr3 = new XMLHttpRequest();
-        xhr3.open("PUT", "http://localhost:3000/users/updateList/" + correoUsuario);
-        xhr3.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr3.send(JSON.stringify(usuarioNuevo));
-        xhr3.onload = () => {
-            resolve()
-        };
-    }///PRIMER ONLOAD
-    });
+
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("PUT","http://localhost:3000/users/updateList/"+correo);
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(json));
+        xhr.onload=()=>{
+            if(xhr.status != 404 || xhr.status != 500){
+                alert("Lista actualizada exitosamente");
+                resolve();
+            }else{
+                alert("Error al actulizar la lista");
+                reject();
+            }
+        }
+    })
 }

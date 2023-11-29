@@ -18,7 +18,7 @@ const upload = multer({storage:storage});
 //ruta para subir archivos
 router.post('/upload',upload.single('archivo'),(req,res)=>{
     const originalname = req.file.originalname
-    const rutaFinal = path.join(__dirname,'..','assets','uploadedDogs',originalname);
+    const rutaFinal = path.join(originalname);
     //mandamos la ruta del archivo
     res.send(rutaFinal);
 });

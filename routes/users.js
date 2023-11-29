@@ -112,8 +112,7 @@ router.put('/users/updateList/:correo', async (req, res) => {
     try {
         console.log("NUEVA LISTA"+req.body.perrosDadosEnAdopcion);
         const correo = req.params.correo;
-        const nuevaLista = req.body.perrosDadosEnAdopcion; // Suponiendo que la lista se envía en el cuerpo de la solicitud
-
+        const nuevaLista = req.body.perrosDadosEnAdopcion;
         // Buscar y actualizar el usuario por correo
         const usuarioActualizado = await User.findOneAndUpdate(
         { correo: correo },

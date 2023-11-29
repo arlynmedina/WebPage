@@ -37,16 +37,18 @@ router.get("/dogs/:nombre",async(req,res)=>{
     }
 });
 
-router.post('/dogs',async(req,res)=>{
-    try{
+
+//ruta POST
+router.post('/dogs', async (req, res) => {
+    try {
         //creamos del perro a guardar
         let nuevoPerrito = new Dog({
-            nombre:req.body.nombre,
-            edad:req.body.edad,
-            raza:req.body.raza,
-            color:req.body.color,
-            energia:req.body.energia,
-            historialMedico:req.body.historialMedico,
+            nombre: req.body.nombre,
+            edad: req.body.edad,
+            raza: req.body.raza,
+            color: req.body.color,
+            energia: req.body.energia,
+            historialMedico: req.body.historialMedico,
             problemasSalud: req.body.problemasSalud,
             medicamentos: req.body.medicamentos,
             descripcion: req.body.descripcion,
@@ -55,11 +57,15 @@ router.post('/dogs',async(req,res)=>{
             telefono: req.body.telefono,
             correo: req.body.correo
         });
+
+        //guardamos el perro en la base de datos
         let perritoGuardado = await nuevoPerrito.save();
+
         res.status(200).json(perritoGuardado);
-    }catch(error){
+    } catch (error) {
         res.status(400).send(error);
     }
 });
+
 
 module.exports = router;

@@ -4,6 +4,17 @@ GET http://localhost:3000/users
 ###OBTENER LOS USUARIOS
 GET http://localhost:3000/users
 
+###OBTENER LOS PERROS
+GET http://localhost:3000/dogs
+
+###ACTUALIZAR ALGO DE UN USUARIO
+PUT http://localhost:3000/users/updateList/prueba@gmail.com
+Content-Type: application/json
+
+{
+    "perrosDadosEnAdopcion":["SIUU"]
+}
+
 ###postear un usuario
 POST http://localhost:3000/users
 Content-Type: application/json
