@@ -46,14 +46,12 @@ function moverPerro(){
 
     ///guardamos la imagen en el server y guardamos la url real
     guardarImagenEnServer().then((url)=>{
+        alert(`tipo de la url: ${url}`)
         dogJSON.imagen=url;
         ///encadenamos la promesa para postear perros
         return postearPerro(dogJSON);
     }).then(()=>{
         alert("POSTIE TU PERRO");
-        return actualizarLista();
-    }).then(()=>{
-        alert("LISTA ACTUALIZADA SEGUN ESO");
     })
     .catch((error)=>{
         alert("ERROR MI AMOR, ASEGURA DE LLENAR TODOS LOS DATOS... "+error);

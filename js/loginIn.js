@@ -110,13 +110,3 @@ function generatePaginationLinks(totalPages, currentPage) {
 
     pagination.innerHTML = paginationHTML;
 }
-/*
-var filtro = document.getElementById('filtro');
-
-    
-filtro.addEventListener('change', function (event) {        
-    showDogInfoIndex();
-});
-
-showDogInfoIndex();
-*/

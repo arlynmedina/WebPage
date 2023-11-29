@@ -68,6 +68,10 @@ function cambiarHome(){
             alert("Bienvenido");
             ///agregamos al session storage el correo del usuario
             sessionStorage.setItem("correoUsuario",correoUsuario);
+            ///cuando inicia sesion creamos la lista de imagenes de perros que vamos a necesitar
+            let lista = []
+            sessionStorage.setItem("ListaImagenesPerros",JSON.stringify(lista));
+            
             //si coinciden lo mandamos al otro index
             window.location.replace("/WebPage/views/loginIn.html");
         }else if (statusCode===404){
@@ -92,7 +96,6 @@ function verificarse() {
     } else {
         // Obtenemos el correo del usuario que inició sesión
         let correoUsuario = sessionStorage.getItem("correoUsuario");
-
         // Hacemos una llamada al servidor para ver si el usuario ya está verificado
         let xhr = new XMLHttpRequest();
         xhr.open("GET", "http://localhost:3000/users/" + correoUsuario);
@@ -102,7 +105,7 @@ function verificarse() {
             if (usuario.verificado === true) {
                 alert("Has sido verificado");
             } else {
-                window.open('/WebPage/views/certifiedUser.html', '_blank');
+                window.open('/WebPage/views/certifiedUser.html', '_self');
             }
         };
     }
@@ -159,7 +162,7 @@ function checkVerificacion(){
             alert("Necesitas verificarte para poner en adopción a un perro");
             return false;
         }else{
-            window.open('/WebPage/views/userAdoptions.html','_blank')
+            window.open('/WebPage/views/userAdoptions.html','_self');
         };
     };   
 }
