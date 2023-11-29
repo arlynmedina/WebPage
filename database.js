@@ -13,3 +13,6 @@ db.on("connected",()=>{
 });
 
 mongoose.connect(mongoConnection);
+
+//exportamos la coleccion de los perros que usaremos mas adelante
+module.exports = db;

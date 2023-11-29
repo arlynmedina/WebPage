@@ -2,7 +2,7 @@
 GET http://localhost:3000/users
 
 ###OBTENER LOS USUARIOS
-GET http://localhost:3000/users
+GET http://localhost:3000/users/prueba@gmail.com
 
 ###OBTENER LOS PERROS
 GET http://localhost:3000/dogs
@@ -93,4 +93,11 @@ Content-Type: application/json
 
 ###POSTEAMOS UN ADMIN
 GET http://localhost:3000/admins
+
+###BUSCAMOS UN PERRO EN ESPECIFICO POR ID
+GET http://localhost:3000/dogs/id/6566fbbf3224e2bc11d53c70
+
+
+
+
 

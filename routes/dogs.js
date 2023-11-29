@@ -1,5 +1,10 @@
 const {Router} = require('express');
 const router = Router();
+//coleccion de los perros del mongo
+const db = require('../database');
+const collection = db.collection('dogs');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId; 
 
 //modelo 
 const Dog = require("../models/DogModel");
@@ -37,6 +42,26 @@ router.get("/dogs/:nombre",async(req,res)=>{
     }
 });
 
+//ruta de perros en especifico por id
+router.get("/dogs/id/:id",async(req,res)=>{
+
+    const id = req.params.id;
+
+    console.log("ID recibido:", id);
+
+    // Verificar si el id es un ObjectId válido
+    if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Id no válido' });
+    }
+
+    collection.findOne({_id: new ObjectId(id)},(error,resultado)=>{
+        if(error){
+            console.error("Error en la busqueda del perro");
+        }else{
+            res.status(200).json(resultado)
+        }
+    })
+})
 
 //ruta POST
 router.post('/dogs', async (req, res) => {
@@ -66,6 +91,7 @@ router.post('/dogs', async (req, res) => {
         res.status(400).send(error);
     }
 });
+
 
 
 module.exports = router;
