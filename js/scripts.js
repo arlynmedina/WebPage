@@ -73,7 +73,7 @@ function cambiarHome(){
             sessionStorage.setItem("ListaImagenesPerros",JSON.stringify(lista));
             
             //si coinciden lo mandamos al otro index
-            window.location.replace("/WebPage/views/loginIn.html","_self");
+            window.location.replace("../views/loginIn.html","_self");
         }else if (statusCode===404){
             //la contra y el usuario no coinciden
             alert("Correo o contraseña incorrecta");
@@ -103,9 +103,9 @@ function verificarse() {
         xhr.onload = () => {
             let usuario = JSON.parse(xhr.response);
             if (usuario.verificado === true) {
-                alert("Has sido verificado");
+                alert("Ya estas verificado");
             } else {
-                window.open('../WebPage/views/certifiedUser.html', '_self');
+                window.open('../views/certifiedUser.html', '_self');
             }
         };
     }
@@ -121,11 +121,18 @@ function darDeAltaUsuario(){
     //validamos si el correo tiene formato correcto
     const estructuraCorreo = /^[a-zA-Z0-9\.\_\-]+@[a-zA-Z]+.[a-zA-Z]+[a-zA-Z\.]*$/
 
+    //validamos si no estan vacias los inputs
+    if(nombre===""||apellidos===""||correo===""||contra===""){
+        alert("Asegurate de llenar todos los campos");
+    }
+
+
     //validamos si el formato del correo es correcto
     if(!estructuraCorreo.test(correo)){
         alert("Correo incorrecto");
         return;
     };
+    
 
     const usuarioAPostear = 
     {
@@ -142,8 +149,14 @@ function darDeAltaUsuario(){
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send(JSON.stringify(usuarioAPostear));
 
+    //limpiamos los inputs
+    nombre="";
+    apellidos="";
+    correo="";
+    contra="";
+
     //le decimos que todo fino
-    alert("Usuario registrado");
+    alert("Usuario registrado con exito");
 }
 
 function checkVerificacion(){
@@ -162,7 +175,7 @@ function checkVerificacion(){
             alert("Necesitas verificarte para poner en adopción a un perro");
             return false;
         }else{
-            window.open('../WebPage/views/userAdoptions.html','_self');
+            window.open('../views/userAdoptions.html','_self');
         };
     };   
 }
@@ -189,5 +202,5 @@ function _checkVerification(){
 function cerrarSesion(){
     //eliminamos el usuario del session storage
     sessionStorage.removeItem("correoUsuario");
-    window.location.replace("/WebPage/views/index.html");
+    window.location.replace("../views/index.html","_self");
 }

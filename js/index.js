@@ -71,7 +71,7 @@ function showDogInfoIndex(pageNumber) {
                 sessionStorage.setItem('selectedDogId', idDog);
 
                 // Redirect to the other page
-                window.location.href = 'dogDescription.html';
+                window.location.href = '../views/dogDescription.html';
             });
         });
 

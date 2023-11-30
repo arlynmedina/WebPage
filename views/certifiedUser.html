@@ -66,30 +66,40 @@
         <div class="row">
             <div class="col-lg-7 align-items-center">
                 <br><br>
-                <h6 class="d-inline bold-text" ><i class="fa-solid fa-signature"></i> Nombre Completo: </h6><br><input class="d-inline normal-text" type = "text" placeholder="Ingresa tu nombre/s" style="margin: 1px; width: 350px;" ></input><br><br>
-                <h6 class="d-inline bold-text" ><i class="fa-solid fa-briefcase"></i> Ocupación: </h6><br><input class="d-inline normal-text" placeholder="Ingresa tu ocupacion" style="margin: 1px; width: 350px;"></input><br><br>
-                <h6 class="d-inline bold-text" ><i class="fa-solid fa-location-dot"></i> Domicilio: </h6><br><input class="d-inline normal-text" placeholder="Ingresa tu domicilio" style="margin: 1px; width: 350px;"></input><br><br>
-                <h6 class="d-inline bold-text" ><i class="fa-solid fa-phone"></i> Teléfono: </h6><br><input class="d-inline normal-text" type = "text" placeholder="Ingresa tu número telefónico" style="margin: 1px; width: 350px;" id="input-telefono "></input><br>
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-signature"></i> Nombre Completo: </h6><br>
+                <input class="d-inline normal-text input-upload" type="text" placeholder="Ingresa tu nombre/s" style="margin: 1px; width: 350px;"><br><br>
+
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-briefcase"></i> Ocupación: </h6><br>
+                <input class="d-inline normal-text input-upload" placeholder="Ingresa tu ocupación" style="margin: 1px; width: 350px;"><br><br>
+
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-location-dot"></i> Domicilio: </h6><br>
+                <input class="d-inline normal-text input-upload" placeholder="Ingresa tu domicilio" style="margin: 1px; width: 350px;"><br><br>
+
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-phone"></i> Teléfono: </h6><br>
+                <input class="d-inline normal-text input-upload" placeholder="Ingresa tu telefono" style="margin: 1px; width: 350px;"><br><br>
+
                 
                 
             </div>
             <div class="col-lg-5 pb-4 pb-lg-0">
                 <br><br>
-                <h6 class="d-inline bold-text" ><i class="fa-solid fa-user"></i> Edad: </h6><br><input class="d-inline normal-text" type = "number" placeholder="Ingresa tu edad" style="margin: 1px; width:250px;"></input><br><br>
-                <h6 class="d-inline bold-text"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: </h6><br><input class="d-inline normal-text" type = "date" placeholder="Ingresa tu nacimiento" style="margin: 1px; width:250px;"></input><br><br>
-                <h6 class="d-inline bold-text"><i class="fa-solid fa-camera"></i></i> Fotografia: </h6><br>
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-user"></i> Edad: </h6><br>
+                <input class="d-inline normal-text input-upload" type="number" placeholder="Ingresa tu edad" style="margin: 1px; width:250px;"><br><br>
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: </h6><br>
+                <input class="d-inline normal-text input-upload" type="date" placeholder="Ingresa tu nacimiento" style="margin: 1px; width:250px;"><br><br>
+                <h6 class="d-inline bold-text"><i class="fa-solid fa-camera"></i> Fotografia: </h6><br>
                 <div class="custom-file-upload">
-                    <input type="file" id="file-fotografia"/>
+                    <input class="input-upload" type="file" id="file-fotografia"/>
                 </div><br>
                 <h6 class="d-inline bold-text"><i class="fa-solid fa-address-card"></i> Identificacion oficial: </h6><br>
                 <div class="custom-file-upload">
-                    <input type="file" id="file-identificacion"/>
+                    <input class="input-upload" type="file" id="file-identificacion"/>
                 </div>
-                
             </div>
+            
         </div>
     </div>
-    <button class ="button-inputs" style = "margin-left: 43%; height:40px; width:100px; background-color: #f4bf6c; color: white;" onclick="certificarUsuario()">Enviar</button>
+    <button class ="button-inputs" style = "margin-left: 43%; height:40px; width:100px; background-color: #f4bf6c; color: white;" onclick="validarnofalsos()">Enviar</button>
 
 
     

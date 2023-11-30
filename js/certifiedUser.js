@@ -1,3 +1,26 @@
+function validarnofalsos() {
+    // Inicializar la variable salir
+    let salir = false;
+
+    // Obtener los inputs para ver si están vacíos o no
+    let entradas = document.querySelectorAll('.input-upload');
+
+    entradas.forEach((input) => {
+        if (input.value === "") {
+            salir = true;
+        }
+    });
+
+    if (salir) {
+        alert("Asegúrate de que todos los campos estén completos");
+        return; // Salir del bucle si encontramos un input vacío
+    }else{
+        alert("Has sido verificado con exito");
+        certificarUsuario();
+    }
+}
+
+
 function certificarUsuario(){
      //obtenemos el correo del usuario que inicia sesion
     let correoUsuario = sessionStorage.getItem("correoUsuario");
@@ -27,7 +50,3 @@ function certificarUsuario(){
     alert("Ahora eres un usuario verificado");
     window.open("../views/loginIn.html","_self");
 };
-
-function checarVacio(){
-    
-}
