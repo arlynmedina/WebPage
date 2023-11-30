@@ -1,5 +1,5 @@
 function certificarUsuario(){
-     //obtenemos el correo del usuario que inicio sesion
+     //obtenemos el correo del usuario que inicia sesion
     let correoUsuario = sessionStorage.getItem("correoUsuario");
     let usuarioACambiar = {} 
 
@@ -25,5 +25,9 @@ function certificarUsuario(){
     xhr2.open("PUT","http://localhost:3000/users/"+correoUsuario);
     xhr2.send(JSON.stringify(usuarioACambiar));
     alert("Ahora eres un usuario verificado");
-    
+    window.open("../views/loginIn.html","_self");
 };
+
+function checarVacio(){
+    
+}
