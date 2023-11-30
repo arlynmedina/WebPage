@@ -73,7 +73,7 @@ function cambiarHome(){
             sessionStorage.setItem("ListaImagenesPerros",JSON.stringify(lista));
             
             //si coinciden lo mandamos al otro index
-            window.location.replace("/WebPage/views/loginIn.html");
+            window.location.replace("/WebPage/views/loginIn.html","_self");
         }else if (statusCode===404){
             //la contra y el usuario no coinciden
             alert("Usuario no registrado");
