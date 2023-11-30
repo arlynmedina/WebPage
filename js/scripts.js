@@ -76,12 +76,12 @@ function cambiarHome(){
             window.location.replace("/WebPage/views/loginIn.html","_self");
         }else if (statusCode===404){
             //la contra y el usuario no coinciden
-            alert("Usuario no registrado");
+            alert("Correo o contraseña incorrecta");
             //ponemos en blanco los inputs
             inputCorreo.value="";
             inputContra.value="";
         }else{
-            alert("Usuario o contraseña incorrecta");
+            alert("Correo o contraseña incorrecta");
             //ponemos en blanco los inputs
             inputCorreo.value="";
             inputContra.value="";
@@ -105,7 +105,7 @@ function verificarse() {
             if (usuario.verificado === true) {
                 alert("Has sido verificado");
             } else {
-                window.open('/WebPage/views/certifiedUser.html', '_self');
+                window.open('../WebPage/views/certifiedUser.html', '_self');
             }
         };
     }
@@ -162,7 +162,7 @@ function checkVerificacion(){
             alert("Necesitas verificarte para poner en adopción a un perro");
             return false;
         }else{
-            window.open('/WebPage/views/userAdoptions.html','_self');
+            window.open('../WebPage/views/userAdoptions.html','_self');
         };
     };   
 }
