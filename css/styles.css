@@ -11431,6 +11431,18 @@ ul {
   margin-left: 20%;
 }
 
+.button-eliminar{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  margin-top: 10px; 
+  font-weight:300; 
+  border-width: 0px;  
+  background-color: #d62929;
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+}
+
 .input-text{
   font-weight: 200; 
   margin: 1px; 
@@ -11573,4 +11585,13 @@ ul {
 
 .brands-container{
   min-height: 150px;
+}
+
+#pagination a {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden {
+  display: none;
 }

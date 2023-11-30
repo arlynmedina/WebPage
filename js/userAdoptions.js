@@ -1,70 +1,162 @@
-function prepararCarrito() {
+const path = '../assets/img/uploadedDogs/'
+
+async function prepararCarrito() {
     return new Promise((resolve, reject) => {
-        console.log("en la funcion de preparar carrito");
-        
-        // Vaciamos la lista
+        console.log("en la función de preparar carrito");
+
         let listaIds = [];
-
-        // Usuario 
-        let usuario;
-
-        // Obtenemos el correo del usuario desde el sessionStorage
         let correoUsuario = sessionStorage.getItem("correoUsuario");
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:3000/users/' + correoUsuario);
-        xhr.send();
-        xhr.onload = () => {
-            // Parseamos el resultado del servidor
-            let usuarioActual = JSON.parse(xhr.responseText);
-            let listadelusuario = usuarioActual.perrosDadosEnAdopcion;
-            listadelusuario.forEach(element => {
-                // Pusheamos en la lista que proximo guardaremos en el sessionStorage
-                listaIds.push(element);
+
+        fetch('http://localhost:3000/users/' + correoUsuario)
+            .then(response => response.json())
+            .then(usuarioActual => {
+                let listadelusuario = usuarioActual.perrosDadosEnAdopcion;
+
+                listadelusuario.forEach(element => {
+                    listaIds.push(element);
+                });
+
+                console.log("LISTA A PUSHEAR " + JSON.stringify(listaIds));
+                sessionStorage.setItem("ListaImagenesPerros", JSON.stringify(listaIds));
+
+                resolve();
+            })
+            .catch(error => {
+                reject(new Error("Error en la solicitud: " + error.message));
             });
 
-            // Ya que acaba todo su show habremos traspasado la info de la lista de la base a la lista a pushear en el sessionStorage
-            console.log("LISTA A PUSHEAR " + JSON.stringify(listaIds));
-            sessionStorage.setItem("ListaImagenesPerros", JSON.stringify(listaIds));
-
-            // Resolvemos la promesa
-            resolve();
-        };
-
-        xhr.onerror = () => {
-            // Rechazamos la promesa si hay un error en la solicitud
-            reject(new Error("Error en la solicitud"));
-        };
-
-        console.log("Termine oficialmente de preparar el session");
+        console.log("Terminé oficialmente de preparar el session");
         console.log("Session preparado: ", sessionStorage);
     });
 }
 
 async function showUserDogs() {
     try {
-        ///esperamos a que el carrito este preparado
         await prepararCarrito();
-        console.log("Preparacion de carrito terminada y oficialmente en la funcion");
-        console.log("Carrito con el que trabajare en la funcion:" + sessionStorage);
+        console.log("Preparación de carrito terminada y oficialmente en la función");
+        console.log("Carrito con el que trabajaré en la función:" + sessionStorage);
 
-        //importamos la lista del session
         let listaSession = JSON.parse(sessionStorage.getItem("ListaImagenesPerros"));
-        //ahora lo que tenemos que hacer es usar el carrito que tenemos y traer la info de los perros por su id
-        for (let i=0;i<listaSession.length;i++){
-            //hacemos una llamada http con el id
-            let xhr = new XMLHttpRequest();
-            xhr.open("GET","http://localhost:3000/dogs/id/"+listaSession[i]);
-            xhr.send();
-            xhr.onload=()=>{
-                console.log(`iteracion: ${i}`)
+        let item = ''; // Variable para almacenar los elementos portfolio-item
+
+        for (let i = 0; i < listaSession.length; i++) {
+            try {
+                let response = await fetch("http://localhost:3000/dogs/id/" + listaSession[i]);
+                let info = await response.json();
+                console.log(info);
+
+                // Agregar el portfolio-item
+                item += `<div class="col-lg-4 col-sm-6 mb-4">
+                    <div id="dog-description" class="portfolio-item">
+                        <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="${path + info.imagen}" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">${info.nombre}</div>
+                            <div class="portfolio-caption-subheading text-muted">${info.raza}</div>
+                            <div class="idChosenDog text-muted hidden">${info._id}</div>
+                        </div>
+                        <!-- Botón Eliminar perro -->
+                        
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                            <button class="button-eliminar" onclick="eliminarPerro('${info._id}')">Eliminar perro</button>
+                        </div>
+                </div>`;
+            } catch (error) {
+                console.error("Error en la solicitud del perro:", error);
             }
         }
+
+        // Agregar los elementos al DOM
+        item = `<div class="row">${item}</div>`;
+        document.getElementById('UserDog').innerHTML = item;
+
+
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach(portfolioItem => {
+            portfolioItem.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Save the selected dog name to sessionStorage
+                const idDog = portfolioItem.querySelector('.idChosenDog').textContent.trim();
+                sessionStorage.setItem('selectedDogId', idDog);
+
+                // Redirect to the other page
+                window.location.href = 'dogDescription.html';
+            });
+        });
 
     } catch (error) {
         console.error("Error al preparar el carrito:", error);
     }
 }
 
-// Llamas a la función showUserDogs desde otro lugar
-showUserDogs();
 
+function eliminarPerro(idPerro) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open('DELETE', 'http://localhost:3000/dogs/id/' + idPerro);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send();
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                resolve();
+                actualizarListaEliminacion(idPerro)
+                window.location.href = '../views/userAdoptions.html'
+            } else {
+                reject();
+            }
+        };
+        xhr.onerror = () => {
+            reject();
+        };
+    });
+}
+
+async function actualizarListaEliminacion(idDog){
+    return new Promise(()=>{
+        //actualizamos la lista del usuario
+        let lista = sessionStorage.getItem("ListaImagenesPerros");
+        let correo = sessionStorage.getItem("correoUsuario");
+
+        // Verifica si lista es null o no es una cadena JSON válida
+        let parsedLista = [];
+        if (lista) {
+            try {
+                parsedLista = JSON.parse(lista);
+                parsedLista = parsedLista.filter(_id => _id !== idDog);
+                
+                // Actualiza el valor en sessionStorage después de modificar el array
+                sessionStorage.setItem("ListaImagenesPerros", JSON.stringify(parsedLista));
+            } catch (error) {
+                console.error("Error al parsear lista como JSON: " + error);
+            }
+        }
+
+        // Creamos el JSON que mandaremos
+        let json = {
+            perrosDadosEnAdopcion: parsedLista
+        };
+
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("PUT","http://localhost:3000/users/updateList/"+correo);
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(json));
+        xhr.onload=()=>{
+            if(xhr.status != 404 || xhr.status != 500){
+                alert("Perro eliminado correctamente");
+                resolve();
+            }else{
+                alert("Error al eliminar perro");
+                reject();
+            }
+        }
+    })
+}
+
+showUserDogs();

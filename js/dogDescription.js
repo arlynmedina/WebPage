@@ -1,4 +1,4 @@
-const selectedValue = sessionStorage.getItem("selectedDogName");
+const selectedValue = sessionStorage.getItem("selectedDogId");
 
 function star(rating){
     var ratingValue = rating;
@@ -14,8 +14,9 @@ function star(rating){
 
 function showDogDescription(selectedValue) {
     console.log(selectedValue);
+    const path = '../assets/img/uploadedDogs/';
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:3000/dogs/' + selectedValue);
+    xhr.open('GET', "http://localhost:3000/dogs/id/" + selectedValue);
     xhr.send();
     let item = '';
     let dogDesc = document.getElementById('dogDesc');
@@ -25,7 +26,7 @@ function showDogDescription(selectedValue) {
         item += `<div class="row">
         <div class="col-lg-5 pb-4 pb-lg-0">
             <br>
-            <img class="img-fluid" src=${info.imagen} style="width: 100%; max-height: 700px;" alt="">
+            <img class="img-fluid" src=${path + info.imagen} style="width: 100%; max-height: 700px;" alt="">
             <br><br>
             <h5>Información de Contacto: </h5>
             <h6 class="d-inline bold-text"><i class="fa-solid fa-location-dot" style="color: #00000a;"></i> Dirección: </h6><p class="d-inline normal-text">${info.direccion}</p><br>

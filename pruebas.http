@@ -95,7 +95,7 @@ Content-Type: application/json
 GET http://localhost:3000/admins
 
 ###BUSCAMOS UN PERRO EN ESPECIFICO POR ID
-GET http://localhost:3000/dogs/id/6566fbbf3224e2bc11d53c70
+DELETE http://localhost:3000/dogs/id/6567ea2eb5e5943cbfe0c993
 
 
 

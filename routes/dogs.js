@@ -63,6 +63,33 @@ router.get("/dogs/id/:id",async(req,res)=>{
     })
 })
 
+//ruta para eliminar perro por id
+router.delete("/dogs/id/:id", (req, res) => {
+    const id = req.params.id;
+
+    console.log("ID recibido:", id);
+
+    // Verificar si el id es un ObjectId válido
+    if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Id no válido' });
+    }
+
+    collection.deleteOne({ _id: new ObjectId(id) }, (error, resultado) => {
+        if (error) {
+            return res.status(500).json({ error: 'Error interno del servidor' });
+        }
+
+        if (resultado.deletedCount === 1) {
+            res.status(200).json({ mensaje: 'Perro eliminado correctamente' });
+        } else {
+            res.status(404).json({ error: 'Perro no encontrado' });
+        }
+    });
+});
+
+
+
+
 //ruta POST
 router.post('/dogs', async (req, res) => {
     try {

@@ -1,4 +1,5 @@
-function showDogInfoIndex() {
+
+function showDogInfoIndex(pageNumber) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/dogs');
     xhr.send();
@@ -6,9 +7,9 @@ function showDogInfoIndex() {
     const dogsPerPage = 6; 
     let items = '';
     let dogInfoIndex = document.getElementById('dogInfoIndex');
-    let pagination = document.getElementById('pagination');
+    const path = '../assets/img/uploadedDogs/';
     let filtroRaza = document.getElementById('filtro');
-    let pageNumber = 1;
+    pageNumber = pageNumber || 1;
 
     xhr.onload = function () {
         let dogs = JSON.parse(xhr.response);
@@ -16,40 +17,41 @@ function showDogInfoIndex() {
         const startIndex = (pageNumber - 1) * dogsPerPage;
         const endIndex = startIndex + dogsPerPage;
 
-        if (filtroRaza.value === "Ninguno"){
+        if (filtroRaza.value === "Ninguno") {
             for (let i = startIndex; i < endIndex && i < dogs.length; i++) {
                 const dog = dogs[i];
                 items += `<div class="col-lg-4 col-sm-6 mb-4">
-                    <div id = "dog-description" class="portfolio-item">
+                    <div id="dog-description" class="portfolio-item">
                         <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="${dog.imagen}" alt="..." />
+                            <img class="img-fluid" src="${path + dog.imagen}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">${dog.nombre}</div>
                             <div class="portfolio-caption-subheading text-muted">${dog.raza}</div>
+                            <div class="idChosenDog text-muted hidden">${dog._id}</div>
                         </div>
                     </div>
                 </div>`;
             }
-        }
-        else{
+        } else {
             for (let i = startIndex; i < endIndex && i < dogs.length; i++) {
                 const dog = dogs[i];
-                if(dog.raza == filtroRaza.value){
+                if (dog.raza == filtroRaza.value) {
                     items += `<div class="col-lg-4 col-sm-6 mb-4">
-                    <div id = "dog-description" class="portfolio-item">
+                    <div id="dog-description" class="portfolio-item">
                         <a class="portfolio-link" href="/WebPage/views/dogDescription.html">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="${dog.imagen}" alt="..." />
+                            <img class="img-fluid" src="${path + dog.imagen}" alt="..." />
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">${dog.nombre}</div>
                             <div class="portfolio-caption-subheading text-muted">${dog.raza}</div>
+                            <div class="idChosenDog text-muted hidden">${dog._id}</div>
                         </div>
                     </div>
                 </div>`;
@@ -65,8 +67,8 @@ function showDogInfoIndex() {
                 event.preventDefault();
 
                 // Save the selected dog name to sessionStorage
-                const dogName = portfolioItem.querySelector('.portfolio-caption-heading').textContent.trim();
-                sessionStorage.setItem('selectedDogName', dogName);
+                const idDog = portfolioItem.querySelector('.idChosenDog').textContent.trim();
+                sessionStorage.setItem('selectedDogId', idDog);
 
                 // Redirect to the other page
                 window.location.href = 'dogDescription.html';
@@ -86,19 +88,21 @@ function generatePaginationLinks(totalPages, currentPage) {
         if (i === currentPage) {
             paginationHTML += `<li class="active">${i}</li>`;
         } else {
-            paginationHTML += `<li onclick="showDogInfoIndex(${i})">${i}</li>`;
+            paginationHTML += `<li><a href="#portfolio" data-page="${i}" onclick="handlePaginationClick(${i})">${i}</a></li>`;
         }
     }
+    pagination.innerHTML = `<ul>${paginationHTML}</ul>`;
+}
 
-    pagination.innerHTML = paginationHTML;
+function handlePaginationClick(pageNumber) {
+    showDogInfoIndex(pageNumber);
 }
 
 var filtro = document.getElementById('filtro');
-if(filtro){
-    filtro.addEventListener('change', function (event) {        
+if (filtro) {
+    filtro.addEventListener('change', function (event) {
         showDogInfoIndex();
     });
 }
-
 
 showDogInfoIndex();
