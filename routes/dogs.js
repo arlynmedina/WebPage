@@ -19,7 +19,7 @@ router.get("/dogs",async(req,res)=>{
     }
 });
 
-//ruta de perros en especifico
+//ruta de perros
 router.get("/dogs/:nombre",async(req,res)=>{
     try{
         //obtenemos el nombre del perro 
@@ -119,6 +119,10 @@ router.post('/dogs', async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 
 
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> ducho

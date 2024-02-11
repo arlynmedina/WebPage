@@ -43,7 +43,55 @@ function moverPerro(){
         telefono: telefono,
         correo: correo
     };
+    //obtenemos el string de los valores
+    let perroString = JSON.stringify(dogJSON);
+    
+    // Obtenemos el correo del usuario que inició sesión
+    let correoUsuario = sessionStorage.getItem("correoUsuario");
+    
+    // Creamos el nuevo esquema de usuario
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open("GET", "http://localhost:3000/users/" + correoUsuario);
+    xhr2.send();
+    xhr2.onload = () => {
+    let usuarioViejo = JSON.parse(xhr2.response);
+    
+    // Obtenemos la lista vieja y le damos push
+    let listaVieja = usuarioViejo.perrosDadosEnAdopcion || [];
+    listaVieja.push(perroString);
+    sessionStorage.setItem("LISTAFINAL",listaVieja);
+    console.log(sessionStorage);
 
+    let usuarioNuevo = {
+        nombre: usuarioViejo.nombre,
+        apellidos: usuarioViejo.apellidos,
+        correo: usuarioViejo.correo,
+        contra: usuarioViejo.contra,
+        perrosDadosEnAdopcion: listaVieja,
+        verificado: usuarioViejo.verificado
+    };
+    
+    // Creamos la llamada para actualizar al usuario con su nuevo perro
+    let xhr3 = new XMLHttpRequest();
+    xhr3.open("PUT", "http://localhost:3000/users/updateList/" + correoUsuario);
+    xhr3.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr3.send(JSON.stringify(usuarioNuevo));
+    xhr3.onload = () => {
+        console.log("Usuario actualizado con el nuevo perro");
+    
+        // Subimos el perro a la base de datos
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/dogs');
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(dogJSON));
+        console.log("Gracias por salvar una vida");
+    };
+    };
+    //guardamos la imagen
+    guardarImagen();
+};
+
+<<<<<<< HEAD
     let urlReal;
     let id;
     ///guardamos la imagen en el server y guardamos la url real
@@ -60,6 +108,8 @@ function moverPerro(){
         alert("Error, asegurate de llenar todos los datos... "+error);
     })
     };
+=======
+>>>>>>> ducho
 
 function agregarInput() {
     // Crear un nuevo input
@@ -79,6 +129,7 @@ function agregarInput() {
 
 function agregarInput2() {
 // Crear un nuevo input
+<<<<<<< HEAD
     var nuevoInput = document.createElement("input");
     nuevoInput.type = "text";
     nuevoInput.name = nameProblems;
@@ -86,6 +137,15 @@ function agregarInput2() {
     nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
     nameProblems += 1;
     nuevoInput.onblur = function () {
+=======
+var nuevoInput = document.createElement("input");
+nuevoInput.type = "text";
+nuevoInput.name = nameProblems;
+nuevoInput.placeholder = "Ingresa el problema";
+nuevoInput.style = "font-weight: 200; margin: 1px; margin-top: 10px; min-width: 70%;";
+nameProblems += 1;
+nuevoInput.onblur = function () {
+>>>>>>> ducho
     agregarValor2(this);
 };
 
@@ -126,7 +186,11 @@ function eliminarInput() {
     contenedor.removeChild(elementos[elementos.length - 1]);
     }
 
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> ducho
 
 // Función para agregar el valor del input a la lista
 function agregarValor(inputValue) {
@@ -150,8 +214,13 @@ function agregarValor2(inputValue) {
     }
 }
 
+<<<<<<< HEAD
 function guardarImagenEnServer() {
     let url = ""
+=======
+function guardarImagen() {
+        console.log("EN LA FUNCION DE GUARDAR ARCHIVO");
+>>>>>>> ducho
         let inputDeImagen = document.getElementById('fileInput');
     
         if (inputDeImagen.files.length > 0) {
@@ -220,6 +289,7 @@ async function actualizarLista(){
                 console.error("Error al parsear lista como JSON: " + error);
             }
         }
+<<<<<<< HEAD
 
         // Creamos el JSON que mandaremos
         let json = {
@@ -242,3 +312,7 @@ async function actualizarLista(){
         }
     })
 }
+=======
+}
+    
+>>>>>>> ducho

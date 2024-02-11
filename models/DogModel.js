@@ -51,7 +51,7 @@ const dogSchema = new Schema({
         required: true
     },
     telefono: {
-        type: Number,
+        type: String,
         required: true
     },
     correo: {

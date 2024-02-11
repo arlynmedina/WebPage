@@ -1,18 +1,24 @@
 ###OBTENER LOS USUARIOS
 GET http://localhost:3000/users
 
-###OBTENER LOS USUARIOS
-GET http://localhost:3000/users/prueba@gmail.com
 
-###OBTENER LOS PERROS
-GET http://localhost:3000/dogs
+###OBTENER UN USUARIO POR SU CORREO
+GET http://localhost:3000/users/ducho@gmail.com.mx
 
-###ACTUALIZAR ALGO DE UN USUARIO
-PUT http://localhost:3000/users/updateList/prueba@gmail.com
+###OBTENER UN USUARIO Y SU CONTRA
+GET http://localhost:3000/users/ducho@gmail.com.mx/12345
+
+###ACTUALIZAMOS UN USUARIO CON UNA NUEVA LISTA
+PUT http://localhost:3000/users/updateList/ducho@gmail.com.mx
 Content-Type: application/json
 
 {
-    "perrosDadosEnAdopcion":["SIUU"]
+    "nombre": "pene",
+    "apellidos":"vidrio",
+    "correo": "ducho@gmail.com.mx",
+    "contra": "12345",
+    "perrosDadosEnAdopcion": ["luna"],
+    "verificado":true
 }
 
 ###postear un usuario
@@ -24,7 +30,8 @@ Content-Type: application/json
     "apellidos":"vidrio",
     "correo": "ducho@gmail.com.mx",
     "contra": "12345",
-    "perrosEnAdopcion": []
+    "perrosEnAdopcion": [],
+    "verificado":false
 }
 
 ###posteamos a ailin tilin
@@ -36,7 +43,8 @@ Content-Type: application/json
     "apellidos":"tilin",
     "correo": "ailintilin@gmail.com.mx",
     "contra": "6789",
-    "perrosEnAdopcion": ["Cachi"]
+    "perrosEnAdopcion": ["Cachi"],
+    "verificado":false
 }
 
 ###posteamos a ximena
@@ -48,56 +56,29 @@ Content-Type: application/json
     "apellidos":"isaac",
     "correo": "ximenaisacc@gmail.com.mx",
     "contra": "password",
-    "perrosEnAdopcion": []
+    "perrosEnAdopcion": [],
+    "verificado":false
 }
 
-/////PERRITOS
-###OBTENER LOS PERROS
-GET http://localhost:3000/dogs
-
-###POSTEAR UN PERRO
-POST http://localhost:3000/dogs
-Content-Type: application/json
-
-{
-    "nombre": "Nombre del Perro",
-    "edad": 3,
-    "raza": "Raza del Perro",
-    "color": "Color del Perro",
-    "energia": 5,
-    "historialMedico": ["Historial Médico del Perro"],
-    "problemasSalud": ["Problemas de Salud del Perro"],
-    "medicamentos": "Medicamento1",
-    "descripcion": "Descripción del Perro",
-    "imagen": "https://example.com/imagen-del-perro.jpg",
-    "direccion": "Calle Principal 456",
-    "telefono": 5555678,
-    "correo": "perro@example.com"
-}
-
-//INFO DOGS
-###OBTENER X PERRITO
-GET http://localhost:3000/infodogs/Beagle
-
-###ACTUALIZAR LA LISTA DE UN USUARIO
-PUT http://localhost:3000/users/updateList/@gmail.com
+###ACTUALIZAR UN USUARIO EXISTENTE
+PUT http://localhost:3000/users/ducho@gmail.com.mx
 Content-Type: application/json
 
 {
     "nombre": "ducho",
-    "apellidos":"ducho",
+    "apellidos":"vidrio",
     "correo": "ducho@gmail.com.mx",
-    "contra": "password",
-    "perrosDadosEnAdopcion": ["luna"]
+    "contra": "12345",
+    "perrosEnAdopcion": [],
+    "verificado":true
 }
 
-###POSTEAMOS UN ADMIN
-GET http://localhost:3000/admins
 
-###BUSCAMOS UN PERRO EN ESPECIFICO POR ID
-DELETE http://localhost:3000/dogs/id/6567ea2eb5e5943cbfe0c993
+/////PERRITOS
+###OBTENER LOS PERROS
+GET http://localhost:3000/dogs/Luna
 
-
-
-
+//INFO DOGS
+###OBTENER X PERRITO
+GET http://localhost:3000/infodogs/Beagle
 

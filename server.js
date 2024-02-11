@@ -1,12 +1,16 @@
 const express = require('express');
 //necesitamos nuestra base de datos
 require("./database");
+//inicilizamos multer
+
 //evitar cors
 const cors = require("cors");
 
 //crear servidor
 const app = express();
 
+//middlewares
+app.use(cors());
 //middlewares
 app.use(cors());
 app.use(express.json());
