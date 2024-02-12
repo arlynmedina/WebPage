@@ -23,9 +23,9 @@ You can install the dependencies with the next command: `npm i` and the name of 
 
 # Usage
 Steps to use the web page properly:
-1- In your favorite code editor clone the repository with the command:
+- In your favorite code editor clone the repository with the command:
 `git clone https://github.com/arlynmedina/WebPage.git`
-2- Install the dependices from before
-3- Run the server with the command: `node server.js`
-4- Open the index.html (Live server is recommend)
+- Install the dependices from before
+- Run the server with the command: `node server.js`
+- Open the index.html (Live server is recommend)
 Thats can you use the webpage
