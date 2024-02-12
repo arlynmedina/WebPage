@@ -45,10 +45,6 @@ router.get('/users/:correo/:contra',async(req,res)=>{
         
         //verificar si encontramos el usuario
         if(!usuario){
-<<<<<<< HEAD
-=======
-            console.log("Nos e que ahjgo aqui")
->>>>>>> ducho
             return res.status(404).json({mensaje:"Usuario no encontrado"});
 
         //si encontramos al usuario vemos si la contra que nos pasan es la correcta
@@ -114,15 +110,9 @@ router.put('/users/:correo', async (req, res) => {
 // Ruta para actualizar la lista del usuario
 router.put('/users/updateList/:correo', async (req, res) => {
     try {
-<<<<<<< HEAD
         console.log("NUEVA LISTA"+req.body.perrosDadosEnAdopcion);
         const correo = req.params.correo;
         const nuevaLista = req.body.perrosDadosEnAdopcion;
-=======
-        const correo = req.params.correo;
-        const nuevaLista = req.body.perrosDadosEnAdopcion; // Suponiendo que la lista se envía en el cuerpo de la solicitud
-
->>>>>>> ducho
         // Buscar y actualizar el usuario por correo
         const usuarioActualizado = await User.findOneAndUpdate(
         { correo: correo },
@@ -133,10 +123,6 @@ router.put('/users/updateList/:correo', async (req, res) => {
         if (!usuarioActualizado) {
         return res.status(404).json({ mensaje: 'Usuario no encontrado' });
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> ducho
         res.json(usuarioActualizado);
     } catch (error) {
         console.error(error);
@@ -144,10 +130,4 @@ router.put('/users/updateList/:correo', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-    
-module.exports = router;
-
->>>>>>> ducho

@@ -18,6 +18,7 @@ To run this project properly you need to install the next dependencies:
 - [Multer]: Used to interact with the database.
 - [Cors]: Used to interact with the database.
 - [Mongoose]: Used to interact with the database.
+- [bcrypt]: Used to encrypt all the users passwords to save in the database.
 You can install the dependencies with the next command: `npm i` and the name of the dependecie.
 
 # Usage
