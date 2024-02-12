@@ -1,8 +1,8 @@
 # WebPage
 Welcome to our web page to adopt dogs made by: 
-    - Arlyn Linette Medina  
-    - Armando Vidrio Amador
-    - Ximena Isaac Horta
+- Arlyn Linette Medina  
+- Armando Vidrio Amador
+- Ximena Isaac Horta
 
 # Technologies used
 - HTML5: Used for structuring the web pages.
